@@ -1,0 +1,713 @@
+<title>The 16:30</title>
+<style>
+  :root {
+    --paper: #F6F5F1;
+    --ink: #1B1D1F;
+    --muted: #63666B;
+    --rule: #D9D7D1;
+    --accent: #2C5578;
+    --amber: #9A5B1F;
+    --amber-bg: #F3E9DC;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #17191C;
+      --ink: #E7E5E0;
+      --muted: #9B9DA1;
+      --rule: #34373B;
+      --accent: #8FB4D4;
+      --amber: #D0904A;
+      --amber-bg: #26221B;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17191C;
+    --ink: #E7E5E0;
+    --muted: #9B9DA1;
+    --rule: #34373B;
+    --accent: #8FB4D4;
+    --amber: #D0904A;
+    --amber-bg: #26221B;
+  }
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 2.5rem 1.25rem 4rem;
+  }
+  .sheet { max-width: 40rem; margin: 0 auto; }
+  .masthead { text-align: center; margin-bottom: 0.75rem; }
+  .masthead h1 {
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin: 0 0 0.35rem;
+  }
+  .masthead .dateline {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .masthead-rule {
+    border: 0;
+    border-top: 2.5px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    height: 3px;
+    background: transparent;
+    margin: 0.9rem 0 0.8rem;
+  }
+  .notice {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.74rem;
+    color: var(--amber);
+    background: var(--amber-bg);
+    border-radius: 3px;
+    padding: 0.45rem 0.7rem;
+    text-align: center;
+    margin-bottom: 1.6rem;
+  }
+  .topline {
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-size: 1.4rem;
+    line-height: 1.35;
+    text-wrap: balance;
+    text-align: center;
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+  }
+  .topline-label, .section-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 0.5rem;
+  }
+  section { margin-top: 2.3rem; }
+  .section-label { text-align: left; border-bottom: 1px solid var(--rule); padding-bottom: 0.4rem; }
+  .item { margin-top: 1.15rem; }
+  .item h3 {
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-size: 1.06rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    text-wrap: balance;
+  }
+  .item .region { color: var(--accent); }
+  .item p { margin: 0 0 0.3rem; font-size: 0.96rem; }
+  .src {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.74rem;
+    color: var(--muted);
+  }
+  .vlabel { color: var(--accent); }
+  .tag-single { color: var(--amber); font-weight: 600; }
+  .longview-intro {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin: 0 0 0.8rem;
+  }
+  .table-wrap { overflow-x: auto; }
+  .longview table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 46rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .longview th {
+    text-align: right;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.66rem;
+    padding: 0.4rem 0.55rem;
+    border-bottom: 1px solid var(--ink);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .longview th:hover { color: var(--accent); }
+  .longview th:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .longview th .sort-ind { display: inline-block; width: 0.8em; color: var(--accent); }
+  .longview th:first-child, .longview td:first-child { text-align: right; padding-left: 0; color: var(--muted); }
+  .longview th:nth-child(2), .longview td:nth-child(2) { text-align: left; }
+  .longview td {
+    text-align: right;
+    padding: 0.45rem 0.55rem;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  .longview td:nth-child(2) { font-weight: 600; }
+  .longview tr.sweden td { background: var(--amber-bg); }
+  .longview .per { color: var(--muted); font-size: 0.66rem; }
+  .footer {
+    margin-top: 2.8rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--rule);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.76rem;
+    color: var(--muted);
+  }
+  .footer p { margin: 0 0 0.5rem; }
+</style>
+
+<div class="sheet">
+  <header class="masthead">
+    <h1>The 16:30</h1>
+    <div class="dateline">Wednesday 2 September 2026 · 16:30 · Issue No. 8 · One reader</div>
+    <hr class="masthead-rule">
+  </header>
+
+  <div class="notice">Every item passed the Fact-checker desk before publication. Labels state the verification level.</div>
+
+  <div class="topline-label">The top line</div>
+  <p class="topline">US and Iran exchanged direct strikes for the first time in weeks: Brent near $95, US 10-year yield to about 4.81 percent, and Iran says a wedding strike killed civilians.</p>
+
+  <section>
+    <div class="section-label">The World</div>
+    <div class="item">
+      <h3>1 · US and Iran exchange direct strikes, war reignites</h3>
+      <p>US warplanes struck Iranian air-defense, radar and naval sites Sept 1; Iran fired missiles and drones at US bases in Jordan, Bahrain, Kuwait and Iraqi Kurdistan. A wedding strike in Kuhestak killed at least 5, wounding dozens.</p>
+      <div class="src">Washington Post (left, T2) · Bloomberg (center, T1) · CNBC (center, T1) · Fox News (right, T2) · Al Jazeera (center, T2) · CBS News (center, T1) · <span class="vlabel">verified, reliable secondary</span></div>
+    </div>
+    <div class="item">
+      <h3>2 · Nepal-Tibet flood toll passes 1,100</h3>
+      <p>Nepal's disaster authority raised its own flood death toll to 1,114, with Tibet separately reporting 16 dead; roughly 4,500 remain missing across both countries, and officials say hopes of finding more survivors are fading.</p>
+      <div class="src">ABC News (center, T1) · Al Jazeera (center, T2) · CNN (center, T1) · <span class="vlabel">verified, reliable secondary</span></div>
+    </div>
+    <div class="item">
+      <h3>3 · Venezuela's assembly approves US oil deal; Pentagon denies equity stake</h3>
+      <p>Venezuela's National Assembly approved the US oil deal: Pentagon-linked NABEP holds a 35 percent stake across 17 fields with 65 billion barrels; Caracas gets $19 per barrel sold to the US. The Pentagon separately denied holding equity in private firms.</p>
+      <div class="src">Bloomberg (center, T1) · Euronews (center, T2) · Al Jazeera (center, T2) · NPR (left, T1) · Wall Street Journal (right, T1) · <span class="vlabel">verified, reliable secondary</span> <span class="tag-single">(the Pentagon's denial vs. the White House's confirmed stake is a genuine unresolved contradiction, not an error)</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">By region</div>
+    <div class="item">
+      <h3><span class="region">Europe</span> (Sweden) · Election gap narrows further, to 2.6 points</h3>
+      <p>Two differently-sampled Swedish polls (Novus/TV4, Indikator/SR) show the opposition's lead over Kristersson's government narrowing further, to 2.6 and 4.7 points, both down sharply from summer readings, with the 13 September election now inside two weeks.</p>
+      <div class="src">Bloomberg (center, T1) · Novus/TV4 (center, T2) · Sveriges Radio/Indikator (center, T1) · <span class="vlabel">verified, reliable secondary</span></div>
+    </div>
+    <div class="item">
+      <h3><span class="region">North America</span> · Canada eases some tariffs, hardens others</h3>
+      <p>Canada removed 25 percent counter-tariffs on CUSMA-compliant US goods from 1 September, while confirming new retaliatory tariffs on C$27.6 billion of non-compliant goods from 8 September, matching Washington's 50 percent tariffs dollar-for-dollar.</p>
+      <div class="src">Canada.ca (official, T1) · CBC News (center, T1) · NPR (left, T1) · <span class="vlabel">verified, primary source</span></div>
+    </div>
+    <div class="item">
+      <h3><span class="region">Africa</span> · El Nino threatens 162 million African children</h3>
+      <p>UNICEF warned the strengthening 2026-2027 El Nino threatens over 162 million children across 13 Eastern and Southern African countries with drought, floods and extreme heat, appealing for $173 million in anticipatory humanitarian funding.</p>
+      <div class="src">UNICEF (primary, T1) · allAfrica (center, T2) · <span class="vlabel">single source, unconfirmed</span> <span class="tag-single">(primary UN appeal, not yet independently corroborated by a wire agency)</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Energy</div>
+    <div class="item">
+      <h3>1 · Hormuz tanker strikes confirm first crisis deaths; gas hits 3-year high</h3>
+      <p>Two Hormuz-area tanker strikes off Oman on 31 August killed two Filipino crew, the crisis's first confirmed deaths; Brent rose near $95 and Dutch TTF gas jumped to €73.95/MWh, highest since January 2023, after US-Iran strikes resumed.</p>
+      <div class="src">CNBC (center, T1) · Guardian (left, T1) · Washington Times (right, T2) · Bloomberg (center, T1) · Euronews (center, T2) · <span class="vlabel">verified, reliable secondary</span></div>
+    </div>
+    <div class="item">
+      <h3>2 · Russia-Ukraine energy infrastructure war intensifies both ways</h3>
+      <p>Ukraine hit Russian refineries 21 times in August, a record, cutting output to 3.8 million barrels a day; Moscow extended its diesel export ban to 30 September, while its own grid retaliation cut power in five Ukrainian regions.</p>
+      <div class="src">Bloomberg (center, T1) · CNN (center, T1) · Ukrainska Pravda (T2) · <span class="vlabel">verified, reliable secondary</span></div>
+    </div>
+    <p class="src" style="margin-top: 0.4rem; font-style: italic;">Only two items this section: a third candidate (Europe's EV sales surging as China's slip) was blocked at the Fact-checker stage after independent data contradicted its figures.</p>
+  </section>
+
+  <section>
+    <div class="section-label">Economy</div>
+    <div class="item">
+      <h3>1 · Bond yields spike further on reignited Iran war</h3>
+      <p>The reignited US-Iran war pushed the US 10-year Treasury yield to about 4.81 percent, highest since late 2023; Japan's 10-year held above 3 percent and Germany's bund hit 3.38 percent, highest since 2011.</p>
+      <div class="src">Bloomberg (center, T1) · CNBC (center, T1) · Fortune (center, T2) · <span class="vlabel">single source, unconfirmed</span> <span class="tag-single">(the US figure is a market quote, not yet Fed H.15-confirmed)</span></div>
+    </div>
+    <div class="item">
+      <h3>2 · US private payrolls growth stalls before jobs report</h3>
+      <p>ADP reported US private employers added just 38,000 jobs in August, down from 46,000 in July and below the 47,000 forecast, the weakest reading since January; manufacturing shed 17,000 jobs, raising the stakes for Friday's official jobs report.</p>
+      <div class="src">CNBC (center, T1) · Reuters via The Globe and Mail (center, T1) · Fox Business (right, T2) · <span class="vlabel">verified, primary source</span></div>
+    </div>
+    <div class="item">
+      <h3>3 · Eurozone factory output hits 51-month high</h3>
+      <p>The HCOB/S&amp;P Global eurozone manufacturing PMI climbed to 52.7 in August from 51.9, the highest since May 2022, with new orders growing fastest since early 2022 and export gains led by Germany, Austria and the Netherlands.</p>
+      <div class="src">S&amp;P Global (primary, T1) · Investing.com/Reuters (center, T1) · <span class="vlabel">verified, primary source</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-label">Politics</div>
+    <div class="item">
+      <h3>1 · Russia's jet-powered drones erode Ukraine's air defense</h3>
+      <p>Russian factories now build about 3,000 jet-powered Geran-4 and Geran-5 drones a month, several times faster than older Shaheds; Ukraine's interception rate fell from 95-98 percent to 79 percent by 31 August.</p>
+      <div class="src">RFE/RL (center, T2) · Meduza (center, T2) · Wall Street Journal (right, T1) · <span class="vlabel">verified, reliable secondary</span></div>
+    </div>
+    <div class="item">
+      <h3>2 · Sweden pushes EU to renew frozen Russian assets fight</h3>
+      <p>Sweden, with the Netherlands, Poland and Spain, urged the EU to renew use of roughly 200 billion euros in frozen Russian assets after officials warned the existing 90 billion euro Ukraine loan won't cover 2027.</p>
+      <div class="src">Kyiv Independent (center, T2) · RFE/RL (center, T2) · Irish Times (center, T2) · <span class="vlabel">verified, reliable secondary</span></div>
+    </div>
+    <div class="item">
+      <h3>3 · US Congress averts shutdown, defers fight past midterms</h3>
+      <p>The House passed a stopgap funding bill 370-48 on 1 September, extending federal funding through 11 December and pushing the next spending fight past November's midterm elections; it now goes to Trump for signature.</p>
+      <div class="src">Washington Post (left, T2) · Bloomberg (center, T1) · Axios (center, T2) · NBC News (center, T2) · <span class="vlabel">verified, reliable secondary</span></div>
+    </div>
+  </section>
+
+  <section class="longview">
+    <div class="section-label">The long view</div>
+    <p class="longview-intro">How different countries' economies are doing, as a counterbalance to the daily news. 35 economies ranked by the average of each economy's rank on GDP growth, inflation (lower is better) and equities year to date, plus the Eurozone aggregate (unranked). Refreshed 2 September, targeted pass: US and German equities, Germany's 10-year, and South Korea's CPI all moved. Values are slow-moving by design; most cells hold until a new release lands.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Economy</th>
+            <th>GDP<br><span class="per">% yoy</span></th>
+            <th>Inflation<br><span class="per">% yoy</span></th>
+            <th>Policy<br><span class="per">%</span></th>
+            <th>10y<br><span class="per">%</span></th>
+            <th>Stocks<br><span class="per">YTD %</span></th>
+            <th>Debt<br><span class="per">% of GDP</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Slovenia</td>
+            <td>+5.0 <span class="per">Q2</span></td>
+            <td>+2.9 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.63</td>
+            <td>+28.2 <span class="per">SBITOP</span></td>
+            <td>65.7 <span class="per">2025</span></td>
+          </tr>
+          <tr class="sweden">
+            <td>2</td>
+            <td>Sweden</td>
+            <td>+2.8 <span class="per">Q2</span></td>
+            <td>+0.2 <span class="per">CPI, Jul; CPIF +0.7</span></td>
+            <td>1.75</td>
+            <td>3.03</td>
+            <td>+14.2 <span class="per">OMXS30</span></td>
+            <td>34.8 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Hungary</td>
+            <td>+1.7 <span class="per">Q2</span></td>
+            <td>+1.2 <span class="per">Jul</span></td>
+            <td>5.75</td>
+            <td>5.51</td>
+            <td>+33.9 <span class="per">BUX</span></td>
+            <td>74.6 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>South Korea</td>
+            <td>+3.7 <span class="per">Q2</span></td>
+            <td>+3.1 <span class="per">Aug</span></td>
+            <td>3.00</td>
+            <td>4.35</td>
+            <td>+64.0 <span class="per">KOSPI</span></td>
+            <td>52.3 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Poland</td>
+            <td>+3.8 <span class="per">Q2</span></td>
+            <td>+3.0 <span class="per">Jul</span></td>
+            <td>3.75</td>
+            <td>5.95</td>
+            <td>+24.0 <span class="per">WIG20</span></td>
+            <td>59.7 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Denmark</td>
+            <td>+6.2 <span class="per">Q1</span></td>
+            <td>+1.7 <span class="per">Jul</span></td>
+            <td>1.85</td>
+            <td>3.06</td>
+            <td>-0.3 <span class="per">OMXC25</span></td>
+            <td>27.9 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Japan</td>
+            <td>+0.7 <span class="per">Q2</span></td>
+            <td>+1.9 <span class="per">Jul</span></td>
+            <td>1.00</td>
+            <td>3.00</td>
+            <td>+30.6 <span class="per">Nikkei 225</span></td>
+            <td>229.6 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>China</td>
+            <td>+4.3 <span class="per">Q2</span></td>
+            <td>+0.5 <span class="per">Jul</span></td>
+            <td>3.00 LPR</td>
+            <td>1.71</td>
+            <td>-2.1 <span class="per">CSI 300</span></td>
+            <td>96 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Finland</td>
+            <td>+2.5 <span class="per">Q2</span></td>
+            <td>+2.1 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.59</td>
+            <td>+10.5 <span class="per">OMXH25</span></td>
+            <td>88.5 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Norway</td>
+            <td>+1.7 <span class="per">Q1</span></td>
+            <td>+3.0 <span class="per">Jul</span></td>
+            <td>4.25</td>
+            <td>4.46</td>
+            <td>+27.4 <span class="per">Oslo All-Share</span></td>
+            <td>45.0 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>Israel</td>
+            <td>+1.7 <span class="per">Q1</span></td>
+            <td>+1.5 <span class="per">Jul</span></td>
+            <td>3.50</td>
+            <td>3.86</td>
+            <td>+10.6 <span class="per">TA-125</span></td>
+            <td>68.5 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Portugal</td>
+            <td>+2.5 <span class="per">Q2</span></td>
+            <td>+3.0 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.60</td>
+            <td>+12.4 <span class="per">PSI</span></td>
+            <td>89.7 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Austria</td>
+            <td>+0.8 <span class="per">Q2</span></td>
+            <td>+2.8 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.48</td>
+            <td>+24.4 <span class="per">ATX</span></td>
+            <td>80.5 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>Colombia</td>
+            <td>+3.5 <span class="per">Q2</span></td>
+            <td>+6.0 <span class="per">Jul</span></td>
+            <td>12.00</td>
+            <td>12.01</td>
+            <td>+19.0 <span class="per">COLCAP</span></td>
+            <td>59.9 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Italy</td>
+            <td>+1.0 <span class="per">Q2</span></td>
+            <td>+2.9 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>4.08</td>
+            <td>+17.8 <span class="per">FTSE MIB</span></td>
+            <td>137 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>Turkey</td>
+            <td>+2.5 <span class="per">Q1</span></td>
+            <td>+31.8 <span class="per">Jul</span></td>
+            <td>37.00</td>
+            <td>32.47</td>
+            <td>+25.7 <span class="per">BIST 100</span></td>
+            <td>23.5 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>Czech Republic</td>
+            <td>+2.0 <span class="per">Q2</span></td>
+            <td>+1.7 <span class="per">Jul</span></td>
+            <td>3.75</td>
+            <td>4.91</td>
+            <td>+3.8 <span class="per">PX</span></td>
+            <td>44.3 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>Greece</td>
+            <td>+2.0 <span class="per">Q1</span></td>
+            <td>+3.4 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.95</td>
+            <td>+22.7 <span class="per">Athens Gen.</span></td>
+            <td>146 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>Spain</td>
+            <td>+2.7 <span class="per">Q2</span></td>
+            <td>+3.6 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.70</td>
+            <td>+14.7 <span class="per">IBEX 35</span></td>
+            <td>101 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>Latvia</td>
+            <td>+2.5 <span class="per">Q1</span></td>
+            <td>+2.6 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.73*</td>
+            <td>+2.5 <span class="per">OMX Riga</span></td>
+            <td>46.9 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>Estonia</td>
+            <td>+2.1 <span class="per">Q2 flash</span></td>
+            <td>+2.2 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.28*</td>
+            <td>+4.5 <span class="per">OMX Tallinn</span></td>
+            <td>24.1 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>Luxembourg</td>
+            <td>+1.6 <span class="per">Q1</span></td>
+            <td>+2.2 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.30*</td>
+            <td>+10.2 <span class="per">LuxX</span></td>
+            <td>26.5 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>Switzerland</td>
+            <td>+0.3 <span class="per">Q1</span></td>
+            <td>+0.4 <span class="per">Jul</span></td>
+            <td>0.00</td>
+            <td>0.36</td>
+            <td>+9.6 <span class="per">SMI</span></td>
+            <td>39.4 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>24</td>
+            <td>Netherlands</td>
+            <td>+1.3 <span class="per">Q2</span></td>
+            <td>+3.2 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.30</td>
+            <td>+16.4 <span class="per">AEX</span></td>
+            <td>44.4 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>25</td>
+            <td>United States</td>
+            <td>+2.1 <span class="per">Q2</span></td>
+            <td>+3.4 <span class="per">Jul</span></td>
+            <td>3.50 to 3.75</td>
+            <td>4.75</td>
+            <td>+11.5 <span class="per">S&amp;P 500</span></td>
+            <td>123.9 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>United Kingdom</td>
+            <td>+1.2 <span class="per">Q2</span></td>
+            <td>+2.9 <span class="per">Jul</span></td>
+            <td>3.75</td>
+            <td>5.06</td>
+            <td>+9.3 <span class="per">FTSE 100</span></td>
+            <td>101.2 <span class="per">2024</span></td>
+          </tr>
+          <tr>
+            <td>27</td>
+            <td>France</td>
+            <td>+0.7 <span class="per">Q2</span></td>
+            <td>+2.1 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>4.20</td>
+            <td>+4.7 <span class="per">CAC 40</span></td>
+            <td>116 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>28</td>
+            <td>Canada</td>
+            <td>-0.1 <span class="per">Q1</span></td>
+            <td>+3.0 <span class="per">Jul</span></td>
+            <td>2.25</td>
+            <td>3.70</td>
+            <td>+14.7 <span class="per">TSX</span></td>
+            <td>114 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>Germany</td>
+            <td>+1.0 <span class="per">Q2</span></td>
+            <td>+2.9 <span class="per">Aug flash</span></td>
+            <td>2.25 ECB</td>
+            <td>3.38</td>
+            <td>+6.0 <span class="per">DAX</span></td>
+            <td>63.5 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>Mexico</td>
+            <td>+2.2 <span class="per">Q2</span></td>
+            <td>+3.1 <span class="per">Jul</span></td>
+            <td>6.50</td>
+            <td>9.18</td>
+            <td>-0.5 <span class="per">IPC</span></td>
+            <td>45.4 <span class="per">2025, natl.</span></td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>Slovakia</td>
+            <td>+0.7 <span class="per">Q2</span></td>
+            <td>+3.3 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.95</td>
+            <td>+10.9 <span class="per">SAX</span></td>
+            <td>61.4 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>32</td>
+            <td>Belgium</td>
+            <td>+0.5 <span class="per">Q2</span></td>
+            <td>+3.6 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.77</td>
+            <td>+14.9 <span class="per">BEL 20</span></td>
+            <td>107.9 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>33</td>
+            <td>Iceland</td>
+            <td>+2.7 <span class="per">Q1</span></td>
+            <td>+5.3 <span class="per">Jul</span></td>
+            <td>8.00</td>
+            <td>6.97</td>
+            <td>-6.8 <span class="per">OMXI15</span></td>
+            <td>56.1 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>34</td>
+            <td>Ireland</td>
+            <td>-1.6 <span class="per">Q2</span></td>
+            <td>+3.4 <span class="per">Jul</span></td>
+            <td>2.25 ECB</td>
+            <td>3.37</td>
+            <td>+10.1 <span class="per">ISEQ</span></td>
+            <td>32.9 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>35</td>
+            <td>Chile</td>
+            <td>-0.2 <span class="per">Q2</span></td>
+            <td>+3.5 <span class="per">Jul</span></td>
+            <td>4.50</td>
+            <td>5.74</td>
+            <td>+9.1 <span class="per">IPSA</span></td>
+            <td>41.5 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>&middot;</td>
+            <td>Eurozone <span class="per">aggregate, unranked</span></td>
+            <td>+1.0 <span class="per">Q2</span></td>
+            <td>+3.3 <span class="per">flash, Aug</span></td>
+            <td>2.25 <span class="per">deposit</span></td>
+            <td>3.20 <span class="per">Bund</span></td>
+            <td>+11.7 <span class="per">Stoxx 50</span></td>
+            <td>88.9 <span class="per">Q1 26</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="src" style="margin-top: 0.6rem;">Click any column header to sort (first click high to low, click again to flip; the # column restores the composite ranking). Changed this pass, all Fact-checker-verified: the US S&amp;P 500 year to date to +11.5 (confirmed exchange close, 1 Sept, against the 31 Dec 2025 close); Germany's 10-year bund to 3.38, highest since 2011 (independently confirmed); Germany's DAX year to date to +6.0 (confirmed exchange close, 1 Sept); and South Korea's August CPI to +3.1 (Statistics Korea's actual print, not the 3.2 percent consensus), up from +2.8 in July. This CPI change alone moved South Korea from composite rank 1 to rank 4; Slovenia now ranks first and Sweden second. Checked but not changed: the US 10-year stays at the H.15-confirmed 4.75 (31 Aug) rather than a 4.81 percent market quote for 1 Sept, pending the next H.15 print; Japan's 10-year stays at 3.00 rather than an unconfirmed aggregator tick to 3.018. The full 36-row weekly re-verification remains outstanding (last full pass 19 Aug, now 14 days overdue). * No liquid daily 10 year quote, monthly or quarterly average, indicative only. Mexico's debt is a narrower national measure; Denmark's Q1 surge is largely pharmaceutical; Ireland's negative GDP is multinational distorted; Switzerland's debt is the broader general government measure; US GDP is year on year.</p>
+  </section>
+
+  <script>
+    (function () {
+      var table = document.querySelector('.longview table');
+      if (!table) return;
+      var tbody = table.tBodies[0];
+      var ths = Array.prototype.slice.call(table.tHead.rows[0].cells);
+      var state = { col: 0, dir: 1 };
+
+      ths.forEach(function (th, i) {
+        var ind = document.createElement('span');
+        ind.className = 'sort-ind';
+        th.appendChild(ind);
+        th.setAttribute('tabindex', '0');
+        th.setAttribute('role', 'button');
+        th.addEventListener('click', function () { sortBy(i); });
+        th.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sortBy(i); }
+        });
+      });
+
+      function cellNum(row, i) {
+        var t = row.cells[i].textContent;
+        var m = t.match(/[+-]?\d+(\.\d+)?/);
+        return m ? parseFloat(m[0]) : NaN;
+      }
+      function cellText(row, i) {
+        return row.cells[i].textContent.trim().toLowerCase();
+      }
+
+      function sortBy(i) {
+        var textCol = (i === 1);
+        if (state.col === i) {
+          state.dir = -state.dir;
+        } else {
+          state.col = i;
+          state.dir = textCol ? 1 : -1;
+        }
+        var rows = Array.prototype.slice.call(tbody.rows);
+        rows.sort(function (a, b) {
+          if (textCol) {
+            return state.dir * cellText(a, i).localeCompare(cellText(b, i));
+          }
+          var va = cellNum(a, i), vb = cellNum(b, i);
+          if (isNaN(va) && isNaN(vb)) return 0;
+          if (isNaN(va)) return 1;
+          if (isNaN(vb)) return -1;
+          return state.dir === -1 ? (vb - va) : (va - vb);
+        });
+        rows.forEach(function (r) { tbody.appendChild(r); });
+        ths.forEach(function (th, j) {
+          th.querySelector('.sort-ind').textContent = (j === state.col) ? (state.dir === -1 ? '▾' : '▴') : '';
+          th.setAttribute('aria-sort', j === state.col ? (state.dir === -1 ? 'descending' : 'ascending') : 'none');
+        });
+      }
+    })();
+  </script>
+
+  <div class="footer">
+    <p>Issue No. 8, Wednesday 2 September 2026: coverage runs from yesterday's 16:30 edition through today, roughly 16:30 Swedish time. Five fresh correspondent passes plus a targeted long-view refresh, fact-checked by a separate agent before publication.</p>
+    <p>What's new: the Hormuz crisis reignited into a direct US-Iran exchange of strikes for the first time in weeks, with a wedding strike in Kuhestak killing at least five civilians and Iran firing on US bases across Jordan, Bahrain, Kuwait and Iraqi Kurdistan; two tanker strikes off Oman from 31 August were confirmed to have killed two crew, the crisis's first confirmed deaths; global bond yields jumped further, Germany's bund hitting its highest since 2011; Venezuela's National Assembly formally approved the US oil deal even as the Pentagon publicly denied holding the equity stake the White House had confirmed a day earlier; and Nepal's flood toll passed 1,100 with roughly 4,500 missing across Nepal and Tibet. Fixed by the Fact-checker before publication: an apparent place-name disagreement over the wedding strike resolved as no error (Kuhestak nests inside Sirik county); the Nepal-Tibet toll and missing count corrected; the US 10-year yield labeled a market quote pending Fed H.15 confirmation; a drone-production figure corrected to cover two Russian models, not one; and a European/China EV sales item blocked outright after its figures failed independent verification.</p>
+    <p>Source mix across the issue: left (Washington Post, NPR, Guardian), center and wire (Bloomberg, CNBC, CNN, Reuters, Al Jazeera, ABC News, CBS News, Canada.ca, CBC News, Euronews, Ukrainska Pravda, S&amp;P Global, Fortune, Kyiv Independent, RFE/RL, Meduza, Irish Times, Axios, NBC News, allAfrica, UNICEF), right (Fox News, Wall Street Journal, Washington Times, Fox Business). The long-view weekly full re-verification remains outstanding (last full pass 19 August, now 14 days overdue); today's was a targeted four-cell refresh only. Full archive and kill log live in the project.</p>
+  </div>
+</div>
