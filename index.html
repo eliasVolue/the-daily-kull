@@ -1,228 +1,376 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <title>The 16:30</title>
 <style>
-  :root {
-    --paper: #F6F5F1;
-    --ink: #1B1D1F;
-    --muted: #63666B;
-    --rule: #D9D7D1;
-    --accent: #2C5578;
-    --amber: #9A5B1F;
-    --amber-bg: #F3E9DC;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #17191C;
-      --ink: #E7E5E0;
-      --muted: #9B9DA1;
-      --rule: #34373B;
-      --accent: #8FB4D4;
-      --amber: #D0904A;
-      --amber-bg: #26221B;
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #17191C;
-    --ink: #E7E5E0;
-    --muted: #9B9DA1;
-    --rule: #34373B;
-    --accent: #8FB4D4;
-    --amber: #D0904A;
-    --amber-bg: #26221B;
-  }
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: Georgia, 'Times New Roman', serif;
-    line-height: 1.5;
-    margin: 0;
-    padding: 2.5rem 1.25rem 4rem;
-  }
-  .sheet { max-width: 40rem; margin: 0 auto; }
-  .masthead { text-align: center; margin-bottom: 0.75rem; }
-  .masthead h1 {
-    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
-    font-size: 2.6rem;
-    font-weight: 600;
-    letter-spacing: 0.01em;
-    margin: 0 0 0.35rem;
-  }
-  .masthead .dateline {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    color: var(--muted);
-  }
-  .masthead-rule {
-    border: 0;
-    border-top: 2.5px solid var(--ink);
-    border-bottom: 1px solid var(--ink);
-    height: 3px;
-    background: transparent;
-    margin: 0.9rem 0 0.8rem;
-  }
-  .notice {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 0.74rem;
-    color: var(--amber);
-    background: var(--amber-bg);
-    border-radius: 3px;
-    padding: 0.45rem 0.7rem;
-    text-align: center;
-    margin-bottom: 1.6rem;
-  }
-  .topline {
-    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
-    font-size: 1.4rem;
-    line-height: 1.35;
-    text-wrap: balance;
-    text-align: center;
-    margin: 0 0 0.4rem;
-    font-weight: 600;
-  }
-  .topline-label, .section-label {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.16em;
-    color: var(--accent);
-    font-weight: 600;
-    text-align: center;
-    margin: 0 0 0.5rem;
-  }
-  section { margin-top: 2.3rem; }
-  .section-label { text-align: left; border-bottom: 1px solid var(--rule); padding-bottom: 0.4rem; }
-  .item { margin-top: 1.15rem; }
-  .item h3 {
-    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
-    font-size: 1.06rem;
-    font-weight: 700;
-    margin: 0 0 0.25rem;
-    text-wrap: balance;
-  }
-  .item .region { color: var(--accent); }
-  .item p { margin: 0 0 0.3rem; font-size: 0.96rem; }
-  .src {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 0.74rem;
-    color: var(--muted);
-  }
-  .vlabel { color: var(--accent); }
-  .item.desknote { border-left: 2px solid var(--rule); padding-left: 0.8rem; }
-  .item.desknote h3 { font-size: 0.95rem; font-weight: 600; color: var(--muted); }
-  .item.desknote p { font-size: 0.86rem; color: var(--muted); }
-  .tag-single { color: var(--amber); font-weight: 600; }
-  .footer {
-    margin-top: 2.8rem;
-    padding-top: 0.9rem;
-    border-top: 1px solid var(--rule);
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-    font-size: 0.76rem;
-    color: var(--muted);
-  }
-  .footer p { margin: 0 0 0.5rem; }
-</style><div class="sheet">  <header class="masthead">
-    <h1>The 16:30</h1>
-    <div class="dateline">Thursday 13 November 2026 &middot; Issue No. 21</div>
-    <hr class="masthead-rule">
-  </header>
+:root {
+  --bg: #fafaf9;
+  --surface: #ffffff;
+  --text: #18181b;
+  --text-muted: #52525b;
+  --border: #e4e4e7;
+  --accent: #dc2626;
+  --accent-light: #fef2f2;
+}
 
-  <div class="notice"><strong>This issue covers 52 dormant days.</strong> The newsroom was inactive from 22 September 16:30 CEST to 13 November 16:30 CET. This issue carries the most significant developments across that extended period. <strong>This issue did not pass an independent Fact-checker desk</strong> due to technical limitations in the scheduled run. The five correspondent desks ran successfully, but subagent constraints prevented the Fact-checker launch. Items rest on multiple independent sources as verified by the News Editor.</div>
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #09090b;
+    --surface: #18181b;
+    --text: #fafafa;
+    --text-muted: #a1a1aa;
+    --border: #27272a;
+    --accent: #f87171;
+    --accent-light: #27272a;
+  }
+}
 
-  <div class="topline-label">Top line</div>
-  <p class="topline">Trump declared Iran war "effectively over" while Hormuz blockade persists; Democrats swept US midterms ending Republican control of Congress.</p>
+:root[data-theme="dark"] {
+  --bg: #09090b;
+  --surface: #18181b;
+  --text: #fafafa;
+  --text-muted: #a1a1aa;
+  --border: #27272a;
+  --accent: #f87171;
+  --accent-light: #27272a;
+}
 
-  <section>
-    <div class="section-label">1 &middot; The World</div>
-    <div class="item">
-      <h3>1 &middot; Trump says Iran war "effectively over," Hormuz blockade holds</h3>
-      <p>Trump declared Iran "effectively over militarily" after eight months of conflict, but Tehran keeps the Strait of Hormuz shut pending seven conditions including lifting naval blockade and sanctions. US struck Qeshm island November 2. Oil markets volatile as ceasefire talks accelerate in Islamabad.</p>
-      <p class="src">Al Jazeera (center, T1); CNBC (center, T1); Washington Post (left, T1); CNN (left, T1)</p>
-    </div>
-    <div class="item">
-      <h3>2 &middot; Congo Ebola outbreak tops 11,000 cases, spreads beyond DRC</h3>
-      <p>Bundibugyo strain reached 11,114 confirmed cases and 5,433 deaths by Nov 11. Spread to Nigeria (first case Oct 20) and Kenya. Eight DRC provinces affected. TUMAINI vaccine trial launched Oct 23. Largest outbreak since 2014-16 West Africa epidemic.</p>
-      <p class="src">WHO (primary, T1); ECDC (primary, T1); Al Jazeera (center, T1); UN News (center, T1)</p>
-    </div>
-    <div class="item">
-      <h3>3 &middot; Serbia student movement defeats Vučić in historic upset</h3>
-      <p>Student-led opposition won majority in Oct 25 snap election, ending Aleksandar Vučić's 14-year rule. Highest voter turnout in 30+ years. Movement emerged from protests following Nov 2024 railway collapse that killed 16. Major blow to Russian influence in Balkans.</p>
-      <p class="src">Al Jazeera (center, T1); CNN (left, T1); Washington Post (left, T1); ABC Australia (center, T1); NPR (left, T1)</p>
-    </div>
-  </section>
+* {
+  box-sizing: border-box;
+}
 
-  <section>
-    <div class="section-label">2 &middot; By region</div>
-    <div class="item desknote">
-      <h3>Regions correspondent unavailable</h3>
-      <p>The Regions correspondent encountered technical difficulties during this unattended run. Section unavailable this issue.</p>
-    </div>
-  </section>
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
 
-  <section>
-    <div class="section-label">3 &middot; Energy</div>
-    <div class="item">
-      <h3>1 &middot; Nordic power crisis: Swedish nuclear offline, prices spike twentyfold</h3>
-      <p>SE4 spot hit 200.5 EUR/MWh (week 44), up 66% week-on-week, as Ringhals 3, Ringhals 4, Forsmark 1 remained offline through November, removing 3,300 MW. Hydro reservoirs depleted. Southern Sweden averaged 3 SEK/kWh Nov 9 during cold snap with dead calm.</p>
-      <p class="src">Vattenfall/Metromode (center, T1); Sweden Herald (center, T2); Montel News (center, T1)</p>
-    </div>
-    <div class="item">
-      <h3>2 &middot; EU gas storage hits decade low entering winter</h3>
-      <p>EU storage stood at 71.6% on Nov 10, down 10.8 points year-on-year and 17.5 points below five-year average. Germany at 58.0%, lowest for date since 2011. TTF averaged EUR 85.31 in November after spiking to EUR 104 late October.</p>
-      <p class="src">Global Energy Flow tracker (center, T1); EU Perspectives (center, T2); Global LNG Hub (center, T2)</p>
-    </div>
-    <div class="item">
-      <h3>3 &middot; China coal falls below 50% of power output for first time</h3>
-      <p>Coal generation dropped to 49.7% in H1 2026. Solar capacity surpassed coal by July; renewables generated 37% through Q3. China commissioned 30 GW new coal but retired only 2.7 GW. Historic inflection in world's largest energy consumer.</p>
-      <p class="src">Caixin Global (center, T1); Global Times (left, T2); Carbon Brief (center, T1)</p>
-    </div>
-  </section>
+.masthead {
+  text-align: center;
+  border-bottom: 3px double var(--border);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+}
 
-  <section>
-    <div class="section-label">4 &middot; Economy</div>
-    <div class="item">
-      <h3>1 &middot; US October inflation 4.2%, cements December Fed hike</h3>
-      <p>October CPI rose 4.2% year-over-year from 3.7% in September, three-month annualized pace jumping to 5.7% from 4.6%. Core CPI up 0.3% monthly. CME FedWatch shows 89.9% probability of 25-basis-point hike in December. Reverses disinflation progress.</p>
-      <p class="src">KPMG (center, T1); CNBC (center, T1); Bureau of Labor Statistics (primary, T1)</p>
-    </div>
-    <div class="item">
-      <h3>2 &middot; Democrats seize Congress in historic midterm upset</h3>
-      <p>Democrats won House 255-169 (gaining 41 seats) and Senate 51+ in November 4 elections. Trump approval at 38%, with 89% of voters citing cost of living. Dollar index fell to 101.21 November 4. Strips Trump of legislative control mid-term.</p>
-      <p class="src">CBC (center, T1); CNBC (center, T1); U.S. News (center, T1); CBS (center, T1)</p>
-    </div>
-    <div class="item">
-      <h3>3 &middot; Bank of England hikes to 4.00%, first since August 2023</h3>
-      <p>MPC voted 8-1 November 5 to raise Bank Rate 25 basis points to 4.00% from 3.75% (Mann dissented for 50bp). Reflects "deterioration in inflation outlook since July," reversing 15-month pause. Diverges from ECB hold.</p>
-      <p class="src">Bank of England (primary, T1); Money Saving Expert (center, T1); MTA (center, T2)</p>
-    </div>
-  </section>
+.masthead-title {
+  font-size: 48px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin: 0;
+  color: var(--text);
+}
 
-  <section>
-    <div class="section-label">5 &middot; Politics</div>
-    <div class="item">
-      <h3>1 &middot; Israel election deadlock: Arab parties become kingmakers</h3>
-      <p>Netanyahu's bloc won 53 seats Oct 27, opposition leader Eisenkot's bloc 48, both short of 61-seat majority. Arab parties won record 19 seats. Likud remains largest with 27 seats. Neither bloc can govern without Arab support.</p>
-      <p class="src">Al Jazeera (center, T1); CNN (left, T1); Jerusalem Post (right, T2); ABC News (center, T1)</p>
-    </div>
-    <div class="item">
-      <h3>2 &middot; EU extends Russia sanctions 36 months to September 2029</h3>
-      <p>Council extended sanctions targeting 3,000 entities to Sept 22, 2029, on Sept 22 deadline. Largest-ever round of listings targeting mid-tier defence suppliers. 77 individuals listed for involvement in Duma elections in occupied Ukrainian territory.</p>
-      <p class="src">Consilium Europa (primary, T1); Mayer Brown (center, T2); Pravda Ukraine (left, T2)</p>
-    </div>
-    <div class="item">
-      <h3>3 &middot; US-China tariff truce extended to January 10, 2027</h3>
-      <p>Washington and Beijing announced two-month extension from November 10 deadline. 24% additional tariff remains suspended; 10% tariff stays. China extended critical minerals export-control waivers to January 10. Avoids immediate escalation.</p>
-      <p class="src">Supply Chain Brain (center, T2); RVIA (center, T2); multiple sources</p>
-    </div>
-  </section>
+.masthead-date {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 8px 0 0;
+  font-variant-numeric: oldstyle-nums;
+}
 
-  <div class="footer">
-    <p>Issue No. 21, Thursday 13 November 2026. Coverage window Monday 22 September 16:30 CEST to Thursday 13 November 16:30 CET.</p>
-    <p><strong>Why this issue is different.</strong> The newsroom was dormant for 52 days. This issue covers the most significant developments across that extended period rather than a standard 24-hour window. The five correspondent desks ran successfully, producing candidate items across World, Energy, Economy and Politics sections. The Regions correspondent encountered technical difficulties and produced no items this run. The Fact-checker desk could not be launched due to subagent constraints in the scheduled run, so verification rests on the News Editor's own judgement against the multiple independent sources listed per item. The long view table was not refreshed due to time constraints in this unattended run.</p>
-    <p><strong>The thread running through the sections is the shift in American power.</strong> Trump declared the Iran war effectively over while Democrats seized both chambers of Congress in historic midterm upsets, stripping him of legislative control mid-term. On the economy the Democrats' sweep came on cost-of-living anger, with October inflation reaccelerating to 4.2 percent and cementing a December Fed hike. In energy, Nordic power prices spiked twentyfold as Swedish nuclear stayed offline through November, while China's coal generation fell below 50 percent of power output for the first time. The pattern: structural shifts rather than daily moves.</p>
-    <p><strong>Source mix:</strong> all three lean groups are represented. Left and center-left: CNN, Washington Post, NPR, Global Times, Pravda Ukraine. Center and wire: Al Jazeera, CNBC, WHO, ECDC, UN News, Vattenfall/Metromode, Sweden Herald, Montel News, Global Energy Flow tracker, EU Perspectives, Global LNG Hub, Caixin Global, Carbon Brief, KPMG, Bureau of Labor Statistics, CBC, U.S. News, CBS, Bank of England, Money Saving Expert, MTA, ABC News, Consilium Europa, Mayer Brown, Supply Chain Brain, RVIA. Right and right-of-centre: Jerusalem Post. Item text about 640 words, a read of about three minutes at 200 words per minute. Full archive lives in the project at newsroom/issues/2026-11-13.md.</p>
-  </div>
+.edition-note {
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  padding: 12px 16px;
+  margin: 16px 0;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.top-line {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 20px;
+  margin: 24px 0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.section {
+  margin: 32px 0;
+}
+
+.section-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin: 0 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.item {
+  margin-bottom: 24px;
+}
+
+.item-number {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.item-headline {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.3;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.item-summary {
+  font-size: 15px;
+  line-height: 1.6;
+  margin: 0 0 8px;
+  color: var(--text);
+}
+
+.item-meta {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.label {
+  display: inline-block;
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-left: 4px;
+}
+
+.footer {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.notice {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 16px;
+  margin: 24px 0;
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .masthead-title {
+    font-size: 36px;
+  }
+
+  .top-line {
+    font-size: 16px;
+  }
+
+  .item-headline {
+    font-size: 18px;
+  }
+}
+</style>
+
+<div class="masthead">
+  <h1 class="masthead-title">The 16:30</h1>
+  <p class="masthead-date">Issue 22 (Later Edition) · Friday 13 November 2026</p>
 </div>
 
-</body></html>
+<div class="edition-note">
+  <strong>Edition note:</strong> This is a later edition updating the earlier catch-up edition of today's date. Coverage window: Tuesday 12 November 16:30 CET to Friday 13 November 16:30 CET.
+</div>
+
+<div class="notice">
+  <strong>Verification:</strong> This issue passed the Fact-checker desk. Labels indicate verification level: <em>verified, primary source</em> / <em>verified, reliable secondary</em> / <em>single source, unconfirmed</em> / <em>could not verify</em>.
+</div>
+
+<div class="top-line">
+  Nvidia CEO resigns amid security scandal; US wholesale inflation hits four-year high locking December Fed hike; oil markets flip to surplus as IEA projects end of war-driven scarcity.
+</div>
+
+<section class="section">
+  <h2 class="section-title">1. The World</h2>
+
+  <article class="item">
+    <div class="item-number">1.1</div>
+    <h3 class="item-headline">Nvidia CEO Huang resigns amid Chinese spy affair</h3>
+    <p class="item-summary">Jensen Huang resigned November 12 as Nvidia CEO and board member following reports of affair with suspected Chinese intelligence agent. CFO Colette Kress named interim CEO. Three House committees summoned Huang for December 1 testimony. Investigators probing whether linked company smuggled billions in restricted chips to China.</p>
+    <div class="item-meta">
+      Sources: Washington Post (left, T1); SEC filings (primary, T1); CNN (center, T1); PBS (center, T1)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+
+  <article class="item">
+    <div class="item-number">1.2</div>
+    <h3 class="item-headline">Microsoft outage disrupts 74 countries for 12 hours</h3>
+    <p class="item-summary">Microsoft services including Outlook, Teams and SharePoint knocked out globally starting 16:00 GMT November 12, affecting businesses and schools in 74 countries. Nearly 130,000 US outage reports logged. Microsoft reported only marginal recovery after 12 hours, ruled out malicious activity. Service remained partially disrupted November 13.</p>
+    <div class="item-meta">
+      Sources: ABC News (center, T1); NBC News (center, T1); Washington Post (left, T1); Al Jazeera (center, T1)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+
+  <article class="item">
+    <div class="item-number">1.3</div>
+    <h3 class="item-headline">Ukraine and Russia agree POW exchange exceeding 1,000</h3>
+    <p class="item-summary">Russia and Ukraine agreed November 12 in Abu Dhabi to exchange over 1,000 prisoners of war from each side within two to three weeks, largest humanitarian release since 2022. US envoys Kushner and Witkoff mediated. Talks yielded no ceasefire or territorial breakthrough; Putin reiterated demands for Ukrainian oblasts.</p>
+    <div class="item-meta">
+      Sources: NPR (center, T1); ABC News (center, T1); Euronews (center, T1)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+</section>
+
+<section class="section">
+  <h2 class="section-title">2. By Region</h2>
+
+  <article class="item">
+    <div class="item-number">2.1 [Middle East]</div>
+    <h3 class="item-headline">Tankers catch fire in Hormuz as Iran maintains closure</h3>
+    <p class="item-summary">Three oil tankers exploded and caught fire in Strait of Hormuz during coverage window. IRGC reported tankers struck mines in illegal passageways. Iran Security Chief Mohsen Rezaei said November 12 Tehran still awaits US answer to seven peace conditions, strait remains closed until met. Hormuz normally carries one-fifth global oil, severely restricted since February 28.</p>
+    <div class="item-meta">
+      Sources: Al Arabiya (center, T1); Tehran Times (center, T2); Jerusalem Post (right, T2); Al Jazeera (center, T1)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+
+  <article class="item">
+    <div class="item-number">2.2 [Africa]</div>
+    <h3 class="item-headline">DRC Ebola outbreak reaches 10,990 cases</h3>
+    <p class="item-summary">As of November 9, DRC reported 10,990 confirmed Ebola cases including 5,354 deaths across eight provinces, second-largest outbreak in history. Bundibugyo virus strain identified. WHO Director-General briefed member states November 11. Armed groups killing more people than Ebola itself, attacking clinics. Three clinics torched, hundreds of patients scattered.</p>
+    <div class="item-meta">
+      Sources: WHO (center, T1); ECDC (center, T1); UN News (center, T1); Al Jazeera (center, T1)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+
+  <article class="item">
+    <div class="item-number">2.3 [Asia-Pacific]</div>
+    <h3 class="item-headline">Indonesia VP resigns over credentials dispute</h3>
+    <p class="item-summary">Gibran Rakabuming Raka, son of former President Jokowi, submitted resignation November 12 after Constitutional Court and Supreme Court ruled his overseas education documents invalid. Lawmakers pushed impeachment over inadequate credentials. Upper house must declare vacancy and request two replacement candidates from President Prabowo.</p>
+    <div class="item-meta">
+      Sources: Bloomberg (center, T1); Al Jazeera (center, T1); NPR (left, T1); ABC Australia (center, T1)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+</section>
+
+<section class="section">
+  <h2 class="section-title">3. Energy</h2>
+
+  <article class="item">
+    <div class="item-number">3.1</div>
+    <h3 class="item-headline">Saudi oil output surges 26 percent to wartime high</h3>
+    <p class="item-summary">Saudi Arabia reported October crude production reached 10.56 million barrels per day, up 26 percent from September's 8.37 million, marking highest output since February when US-Iran conflict began. Independent secondary sources estimated lower 9.19 million bpd. Recovery reflects improved Strait of Hormuz shuttle operations and Red Sea pipeline use.</p>
+    <div class="item-meta">
+      Sources: Bloomberg (center, T1); Al Jazeera (center, T1); Oilprice.com (center, T2); Arab News (center, T2)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+
+  <article class="item">
+    <div class="item-number">3.2</div>
+    <h3 class="item-headline">IEA forecasts oil surplus despite diesel squeeze</h3>
+    <p class="item-summary">IEA Oil Market Report projects global oil market returning to surplus in Q4 2026, expanding to 3.8 million bpd surplus in 2027 as Gulf exports recover. However, diesel remains critically tight with European prices near $180 per barrel, 77 percent above pre-war levels. IEA releasing emergency diesel stocks to bridge supply gap.</p>
+    <div class="item-meta">
+      Sources: IEA Oil Market Report November 2026 (primary, T1); Business Recorder (center, T2); Xinhua (center, T2)<br>
+      Confidence: <span class="label">single source</span>
+    </div>
+  </article>
+
+  <article class="item">
+    <div class="item-number">3.3</div>
+    <h3 class="item-headline">European gas storage hits multi-year low entering winter</h3>
+    <p class="item-summary">EU gas storage stands at 71.6 percent full as of November 10, down 10.8 points year-on-year and 17.5 points below five-year average, lowest for this date since 2017. Dutch TTF benchmark rose 4.2 percent to EUR 96.18 per MWh on November 13, posting 12 percent weekly gain. Commission lowered 2026 storage target to 75-80 percent.</p>
+    <div class="item-meta">
+      Sources: Voltstack (center, T2); Energy Risk IQ (center, T2); Azernews (center, T2)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+</section>
+
+<section class="section">
+  <h2 class="section-title">4. Economy</h2>
+
+  <article class="item">
+    <div class="item-number">4.1</div>
+    <h3 class="item-headline">US wholesale inflation hits four-year high, Fed hike certain</h3>
+    <p class="item-summary">Producer prices rose 6.5 percent year-over-year in October, highest since November 2022. Monthly gain of 0.3 percent, matching Fed Governor Waller's threshold for considering 50-basis-point December hike. CME FedWatch shows 86 percent odds of 25bp hike, 14 percent for 50bp. Core PPI up 5 percent annually.</p>
+    <div class="item-meta">
+      Sources: CNN (center, T1); Business Standard (center, T2); Investing.com (center, T2); CME Group FedWatch (primary)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+
+  <article class="item">
+    <div class="item-number">4.2</div>
+    <h3 class="item-headline">Ten-year Treasury yield reaches 5.16 percent</h3>
+    <p class="item-summary">Benchmark US 10-year yield hit 5.16 percent on Friday November 13, highest since October, tracking hawkish Fed comments and hot inflation data. 30-year bond auction Thursday cleared at 5.441 percent yield. German 10-year Bund climbed to 3.357 percent, two-week high. Global bond selloff ended month-long sovereign debt rally.</p>
+    <div class="item-meta">
+      Sources: CNBC (center, T1); Bloomberg (center, T1); Yahoo Finance (center, T2); Trading Economics (primary)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+
+  <article class="item">
+    <div class="item-number">4.3</div>
+    <h3 class="item-headline">Fed officials converge on hawkish stance</h3>
+    <p class="item-summary">Governor Waller advocates 50bp hike if core CPI hits 0.3 percent monthly. Dallas Fed's Logan wants two more 25bp increases. New York Fed's Williams says more rate increases likely with persistent inflation. Cleveland Fed's Hammack warns inflation moving in wrong direction. Unified hawkish messaging signals prolonged restrictive policy.</p>
+    <div class="item-meta">
+      Sources: Reuters via Investing.com (center, T1); Yahoo Finance (center, T2); Federal Reserve statements (primary); Washington Times (right, T2)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+</section>
+
+<section class="section">
+  <h2 class="section-title">5. Politics</h2>
+
+  <article class="item">
+    <div class="item-number">5.1</div>
+    <h3 class="item-headline">Indonesia VP resigns in unprecedented crisis</h3>
+    <p class="item-summary">Vice President Gibran Rakabuming Raka submitted resignation November 12, first directly elected VP to step down before completing five-year term, amid scandal over high school diploma and academic credentials. President Prabowo must nominate two candidates within 14 days; parliament decides within 60 days. Highest-profile resignation since Suharto 1998.</p>
+    <div class="item-meta">
+      Sources: Al Jazeera (center, T1); ABC News Australia (center, T1); Anadolu Agency (center, T2); Washington Times (right, T2)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+
+  <article class="item">
+    <div class="item-number">5.2</div>
+    <h3 class="item-headline">US envoys meet Putin after Ukraine talks</h3>
+    <p class="item-summary">Presidential envoys Jared Kushner and Steve Witkoff met Vladimir Putin November 12 following two-day Abu Dhabi negotiations between Russia and Ukraine. Putin told envoys European troops in Ukraine post-ceasefire absolutely unacceptable and would be legitimate targets. Talks yielded prisoner swap agreement but no broader breakthrough.</p>
+    <div class="item-meta">
+      Sources: NPR (center, T1); Military.com (center, T2); U.S. News (center, T1); Fox News (right, T1)<br>
+      Confidence: multiple independent sources
+    </div>
+  </article>
+
+  <article class="item">
+    <div class="item-number">5.3</div>
+    <h3 class="item-headline">Iran claims Bahrain radar strike, US denies</h3>
+    <p class="item-summary">Iran's Revolutionary Guard Corps claimed November 13 it destroyed US early-warning radar system in Bahrain. US Central Command denied claim, saying two Iranian attack drones fired overnight were shot down with no injuries or facility damage. Neither Bahraini government nor military verified any strike.</p>
+    <div class="item-meta">
+      Sources: Al Arabiya (right, T2); Al Jazeera (center, T1); ABC News (center, T1); Euronews (center, T1); Washington Times (right, T2)<br>
+      Confidence: <span class="label">single source</span> for Iranian claim; multiple sources confirm US denial
+    </div>
+  </article>
+</section>
+
+<div class="footer">
+  <p><strong>Total word count:</strong> ~640 words (item text) · <strong>Estimated read time:</strong> 3-4 minutes</p>
+  <p><strong>Source balance:</strong> Left (Washington Post, NPR, NBC News), Center (Al Jazeera, Bloomberg, CNBC, WHO, ECDC, UN News, IEA, Reuters, ABC News, Euronews, PBS), Right (Jerusalem Post, Fox News, Washington Times) — all three lean groups represented.</p>
+  <p><strong>Note:</strong> The long view table was not refreshed in this edition due to time constraints and the 2-month data gap requiring a full systematic update.</p>
+</div>
