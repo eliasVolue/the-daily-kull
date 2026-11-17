@@ -1,376 +1,724 @@
 <title>The 16:30</title>
 <style>
-:root {
-  --bg: #fafaf9;
-  --surface: #ffffff;
-  --text: #18181b;
-  --text-muted: #52525b;
-  --border: #e4e4e7;
-  --accent: #dc2626;
-  --accent-light: #fef2f2;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #09090b;
-    --surface: #18181b;
-    --text: #fafafa;
-    --text-muted: #a1a1aa;
-    --border: #27272a;
-    --accent: #f87171;
-    --accent-light: #27272a;
+  :root {
+    --paper: #F6F5F1;
+    --ink: #1B1D1F;
+    --muted: #63666B;
+    --rule: #D9D7D1;
+    --accent: #2C5578;
+    --amber: #9A5B1F;
+    --amber-bg: #F3E9DC;
   }
-}
-
-:root[data-theme="dark"] {
-  --bg: #09090b;
-  --surface: #18181b;
-  --text: #fafafa;
-  --text-muted: #a1a1aa;
-  --border: #27272a;
-  --accent: #f87171;
-  --accent-light: #27272a;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  line-height: 1.6;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 24px 16px;
-}
-
-.masthead {
-  text-align: center;
-  border-bottom: 3px double var(--border);
-  padding-bottom: 16px;
-  margin-bottom: 24px;
-}
-
-.masthead-title {
-  font-size: 48px;
-  font-weight: 900;
-  letter-spacing: -0.02em;
-  margin: 0;
-  color: var(--text);
-}
-
-.masthead-date {
-  font-size: 14px;
-  color: var(--text-muted);
-  margin: 8px 0 0;
-  font-variant-numeric: oldstyle-nums;
-}
-
-.edition-note {
-  background: var(--accent-light);
-  border-left: 3px solid var(--accent);
-  padding: 12px 16px;
-  margin: 16px 0;
-  font-size: 14px;
-  color: var(--text);
-}
-
-.top-line {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 20px;
-  margin: 24px 0;
-  font-size: 18px;
-  font-weight: 600;
-  line-height: 1.5;
-  text-align: center;
-}
-
-.section {
-  margin: 32px 0;
-}
-
-.section-title {
-  font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--text-muted);
-  margin: 0 0 16px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid var(--border);
-}
-
-.item {
-  margin-bottom: 24px;
-}
-
-.item-number {
-  font-size: 12px;
-  font-weight: 700;
-  color: var(--accent);
-  margin-bottom: 4px;
-}
-
-.item-headline {
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 1.3;
-  margin: 0 0 8px;
-  color: var(--text);
-}
-
-.item-summary {
-  font-size: 15px;
-  line-height: 1.6;
-  margin: 0 0 8px;
-  color: var(--text);
-}
-
-.item-meta {
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.5;
-}
-
-.label {
-  display: inline-block;
-  background: var(--accent-light);
-  color: var(--accent);
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-size: 11px;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  margin-left: 4px;
-}
-
-.footer {
-  margin-top: 48px;
-  padding-top: 24px;
-  border-top: 1px solid var(--border);
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-.notice {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  padding: 16px;
-  margin: 24px 0;
-  font-size: 13px;
-  color: var(--text-muted);
-  line-height: 1.6;
-}
-
-@media (max-width: 600px) {
-  .masthead-title {
-    font-size: 36px;
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #17191C;
+      --ink: #E7E5E0;
+      --muted: #9B9DA1;
+      --rule: #34373B;
+      --accent: #8FB4D4;
+      --amber: #D0904A;
+      --amber-bg: #26221B;
+    }
   }
-
-  .top-line {
-    font-size: 16px;
+  :root[data-theme="dark"] {
+    --paper: #17191C;
+    --ink: #E7E5E0;
+    --muted: #9B9DA1;
+    --rule: #34373B;
+    --accent: #8FB4D4;
+    --amber: #D0904A;
+    --amber-bg: #26221B;
   }
-
-  .item-headline {
-    font-size: 18px;
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1.5;
+    margin: 0;
+    padding: 2.5rem 1.25rem 4rem;
   }
-}
+  .sheet { max-width: 40rem; margin: 0 auto; }
+  .masthead { text-align: center; margin-bottom: 0.75rem; }
+  .masthead h1 {
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-size: 2.6rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin: 0 0 0.35rem;
+  }
+  .masthead .dateline {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--muted);
+  }
+  .masthead-rule {
+    border: 0;
+    border-top: 2.5px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    height: 3px;
+    background: transparent;
+    margin: 0.9rem 0 0.8rem;
+  }
+  .notice {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.74rem;
+    color: var(--amber);
+    background: var(--amber-bg);
+    border-radius: 3px;
+    padding: 0.45rem 0.7rem;
+    text-align: center;
+    margin-bottom: 1.6rem;
+  }
+  .topline {
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-size: 1.4rem;
+    line-height: 1.35;
+    text-wrap: balance;
+    text-align: center;
+    margin: 0 0 0.4rem;
+    font-weight: 600;
+  }
+  .topline-label, .section-label {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--accent);
+    font-weight: 600;
+    text-align: center;
+    margin: 0 0 0.5rem;
+  }
+  section { margin-top: 2.3rem; }
+  .section-label { text-align: left; border-bottom: 1px solid var(--rule); padding-bottom: 0.4rem; }
+  .item { margin-top: 1.15rem; }
+  .item h3 {
+    font-family: Palatino, 'Palatino Linotype', 'Book Antiqua', Georgia, serif;
+    font-size: 1.06rem;
+    font-weight: 700;
+    margin: 0 0 0.25rem;
+    text-wrap: balance;
+  }
+  .item .region { color: var(--accent); }
+  .item p { margin: 0 0 0.3rem; font-size: 0.96rem; }
+  .src {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.74rem;
+    color: var(--muted);
+  }
+  .vlabel { color: var(--accent); }
+  .item.desknote { border-left: 2px solid var(--rule); padding-left: 0.8rem; }
+  .item.desknote h3 { font-size: 0.95rem; font-weight: 600; color: var(--muted); }
+  .item.desknote p { font-size: 0.86rem; color: var(--muted); }
+  .tag-single { color: var(--amber); font-weight: 600; }
+  .longview-intro {
+    font-size: 0.88rem;
+    color: var(--muted);
+    margin: 0 0 0.8rem;
+  }
+  .table-wrap { overflow-x: auto; }
+  .longview table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 46rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.78rem;
+    font-variant-numeric: tabular-nums;
+  }
+  .longview th {
+    text-align: right;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    font-size: 0.66rem;
+    padding: 0.4rem 0.55rem;
+    border-bottom: 1px solid var(--ink);
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+  }
+  .longview th:hover { color: var(--accent); }
+  .longview th:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .longview th .sort-ind { display: inline-block; width: 0.8em; color: var(--accent); }
+  .longview th:first-child, .longview td:first-child { text-align: right; padding-left: 0; color: var(--muted); }
+  .longview th:nth-child(2), .longview td:nth-child(2) { text-align: left; }
+  .longview td {
+    text-align: right;
+    padding: 0.45rem 0.55rem;
+    border-bottom: 1px solid var(--rule);
+    white-space: nowrap;
+  }
+  .longview td:nth-child(2) { font-weight: 600; }
+  .longview tr.sweden td { background: var(--amber-bg); }
+  .longview .per { color: var(--muted); font-size: 0.66rem; }
+  .footer {
+    margin-top: 2.8rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--rule);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 0.76rem;
+    color: var(--muted);
+  }
+  .footer p { margin: 0 0 0.5rem; }
 </style>
+<div class="sheet">  <header class="masthead">
+    <h1>The 16:30</h1>
+    <div class="dateline">Monday 16 November 2026 &middot; Issue No. 23 &middot; Weekend special, late edition</div>
+    <hr class="masthead-rule">
+  </header>
 
-<div class="masthead">
-  <h1 class="masthead-title">The 16:30</h1>
-  <p class="masthead-date">Issue 22 (Later Edition) · Friday 13 November 2026</p>
-</div>
+  <div class="notice"><strong>Weekend special, late edition.</strong> The scheduled Monday 16:30 run was cut off by a network outage overnight, so this issue was produced on Tuesday morning. The cutoff was honoured: the window is Friday 13 November 16:30 to Monday 16 November 16:30 CET, and anything later is marked post-cutoff. This issue passed the Fact-checker desk. Labels show the verification level: <em>verified, primary source</em> / <em>verified, reliable secondary</em> / <em>single source, unconfirmed</em> / <em>could not verify</em>.</div>
 
-<div class="edition-note">
-  <strong>Edition note:</strong> This is a later edition updating the earlier catch-up edition of today's date. Coverage window: Tuesday 12 November 16:30 CET to Friday 13 November 16:30 CET.
-</div>
+  <div class="topline-label">Top line</div>
+  <p class="topline">Houthis took the Bab el-Mandeb coast while Hormuz stays contested, putting both exits for Gulf oil under Iran-aligned pressure; Trump, Xi and Putin meet Thursday.</p>
 
-<div class="notice">
-  <strong>Verification:</strong> This issue passed the Fact-checker desk. Labels indicate verification level: <em>verified, primary source</em> / <em>verified, reliable secondary</em> / <em>single source, unconfirmed</em> / <em>could not verify</em>.
-</div>
-
-<div class="top-line">
-  Nvidia CEO resigns amid security scandal; US wholesale inflation hits four-year high locking December Fed hike; oil markets flip to surplus as IEA projects end of war-driven scarcity.
-</div>
-
-<section class="section">
-  <h2 class="section-title">1. The World</h2>
-
-  <article class="item">
-    <div class="item-number">1.1</div>
-    <h3 class="item-headline">Nvidia CEO Huang resigns amid Chinese spy affair</h3>
-    <p class="item-summary">Jensen Huang resigned November 12 as Nvidia CEO and board member following reports of affair with suspected Chinese intelligence agent. CFO Colette Kress named interim CEO. Three House committees summoned Huang for December 1 testimony. Investigators probing whether linked company smuggled billions in restricted chips to China.</p>
-    <div class="item-meta">
-      Sources: Washington Post (left, T1); SEC filings (primary, T1); CNN (center, T1); PBS (center, T1)<br>
-      Confidence: multiple independent sources
+  <section>
+    <div class="section-label">1 &middot; The World</div>
+    <div class="item">
+      <h3>1 &middot; Houthis take the Bab el-Mandeb coast and advance on Aden</h3>
+      <p>On 15 November Yemen's government-aligned forces withdrew from Dhubab and the Bab el-Mandeb area to defend Aden; the Houthis now hold the western coast, about 80 km from Aden. Saudi Arabia replaced its coalition commander on 16 November.</p>
+      <p class="src">Reuters via US News (center, T2); France 24/AFP (center, T2); Al Jazeera (center, T2); NBC News (left, T2); Jerusalem Post (right, T2). Confidence: multiple independent sources. Verification: <span class="vlabel">verified, reliable secondary</span>.</p>
     </div>
-  </article>
-
-  <article class="item">
-    <div class="item-number">1.2</div>
-    <h3 class="item-headline">Microsoft outage disrupts 74 countries for 12 hours</h3>
-    <p class="item-summary">Microsoft services including Outlook, Teams and SharePoint knocked out globally starting 16:00 GMT November 12, affecting businesses and schools in 74 countries. Nearly 130,000 US outage reports logged. Microsoft reported only marginal recovery after 12 hours, ruled out malicious activity. Service remained partially disrupted November 13.</p>
-    <div class="item-meta">
-      Sources: ABC News (center, T1); NBC News (center, T1); Washington Post (left, T1); Al Jazeera (center, T1)<br>
-      Confidence: multiple independent sources
+    <div class="item">
+      <h3>2 &middot; Trump, Xi and Putin confirm first three-way summit, Thursday</h3>
+      <p>China's foreign ministry and the White House schedule confirmed on 16 November a Trump, Xi and Putin meeting on 19 November in Shenzhen, beside APEC. Nuclear arms lead the agenda, with Iran and trade; New START, the last US-Russia arms treaty, expired in February.</p>
+      <p class="src">CNBC (center, T2); NBC News (left, T2); PBS (center, T2); Al Jazeera (center, T2); TASS (state, T2). Confidence: multiple independent sources. Verification: <span class="vlabel">verified, reliable secondary</span>.</p>
     </div>
-  </article>
-
-  <article class="item">
-    <div class="item-number">1.3</div>
-    <h3 class="item-headline">Ukraine and Russia agree POW exchange exceeding 1,000</h3>
-    <p class="item-summary">Russia and Ukraine agreed November 12 in Abu Dhabi to exchange over 1,000 prisoners of war from each side within two to three weeks, largest humanitarian release since 2022. US envoys Kushner and Witkoff mediated. Talks yielded no ceasefire or territorial breakthrough; Putin reiterated demands for Ukrainian oblasts.</p>
-    <div class="item-meta">
-      Sources: NPR (center, T1); ABC News (center, T1); Euronews (center, T1)<br>
-      Confidence: multiple independent sources
+    <div class="item">
+      <h3>3 &middot; Zelensky says US floated Donbas for NATO membership</h3>
+      <p>Zelensky said in remarks reported 14 November that US envoys asked, for the first time, whether Kyiv would leave the Donbas it still holds in exchange for NATO membership. He refused to cede territory but offered a referendum on a full security package.</p>
+      <p class="src">Kyiv Independent (center, T2); CNBC (center, T2); France 24 (center, T2); NBC News (left, T2); Jerusalem Post (right, T2). Confidence: all reports rest on Zelensky's own account; no US confirmation. Verification: <span class="vlabel">verified, reliable secondary</span>.</p>
     </div>
-  </article>
-</section>
+  </section>
 
-<section class="section">
-  <h2 class="section-title">2. By Region</h2>
-
-  <article class="item">
-    <div class="item-number">2.1 [Middle East]</div>
-    <h3 class="item-headline">Tankers catch fire in Hormuz as Iran maintains closure</h3>
-    <p class="item-summary">Three oil tankers exploded and caught fire in Strait of Hormuz during coverage window. IRGC reported tankers struck mines in illegal passageways. Iran Security Chief Mohsen Rezaei said November 12 Tehran still awaits US answer to seven peace conditions, strait remains closed until met. Hormuz normally carries one-fifth global oil, severely restricted since February 28.</p>
-    <div class="item-meta">
-      Sources: Al Arabiya (center, T1); Tehran Times (center, T2); Jerusalem Post (right, T2); Al Jazeera (center, T1)<br>
-      Confidence: multiple independent sources
+  <section>
+    <div class="section-label">2 &middot; By region</div>
+    <div class="item">
+      <h3><span class="region">Europe</span> &middot; Estonia moves to close its Russian border after drone plant sabotage</h3>
+      <p>Prime Minister Kristen Michal said on 15 November the Narva, Luhamaa and Koidula crossings should close from 1 December, after a foiled arson attempt attributed to Russian military intelligence on drone maker Threod Systems near Tallinn on 14 November. Government decides next week.</p>
+      <p class="src">ERR News (center, T1); CNBC (center, T2); Euronews (center, T2); Defense News (center, T2); Moscow Times (center, T2). Confidence: multiple independent sources; a proposal, not yet a decision. Verification: <span class="vlabel">verified, reliable secondary</span>.</p>
     </div>
-  </article>
-
-  <article class="item">
-    <div class="item-number">2.2 [Africa]</div>
-    <h3 class="item-headline">DRC Ebola outbreak reaches 10,990 cases</h3>
-    <p class="item-summary">As of November 9, DRC reported 10,990 confirmed Ebola cases including 5,354 deaths across eight provinces, second-largest outbreak in history. Bundibugyo virus strain identified. WHO Director-General briefed member states November 11. Armed groups killing more people than Ebola itself, attacking clinics. Three clinics torched, hundreds of patients scattered.</p>
-    <div class="item-meta">
-      Sources: WHO (center, T1); ECDC (center, T1); UN News (center, T1); Al Jazeera (center, T1)<br>
-      Confidence: multiple independent sources
+    <div class="item">
+      <h3><span class="region">North America</span> &middot; US requires licences for AI chips to five more countries</h3>
+      <p>On 16 November the Commerce Department required licences to ship advanced AI chips to Singapore, Malaysia, Thailand, Indonesia and Brazil, and for data centres there to rent that compute to Chinese firms. Nvidia was down about 4 percent intraday.</p>
+      <p class="src">Bloomberg (center, T2); CNBC (center, T2); Al Jazeera (center, T2); OPB/NPR (left, T2); Forbes (right, T2). Confidence: multiple independent sources. Verification: <span class="vlabel">verified, reliable secondary</span>.</p>
     </div>
-  </article>
-
-  <article class="item">
-    <div class="item-number">2.3 [Asia-Pacific]</div>
-    <h3 class="item-headline">Indonesia VP resigns over credentials dispute</h3>
-    <p class="item-summary">Gibran Rakabuming Raka, son of former President Jokowi, submitted resignation November 12 after Constitutional Court and Supreme Court ruled his overseas education documents invalid. Lawmakers pushed impeachment over inadequate credentials. Upper house must declare vacancy and request two replacement candidates from President Prabowo.</p>
-    <div class="item-meta">
-      Sources: Bloomberg (center, T1); Al Jazeera (center, T1); NPR (left, T1); ABC Australia (center, T1)<br>
-      Confidence: multiple independent sources
+    <div class="item">
+      <h3><span class="region">Africa</span> &middot; Africa CDC: Congo Ebola “still not under control”</h3>
+      <p>Six months in, Africa CDC reported on 15 November over 11,200 cases and about 5,500 deaths, with over 80 percent of new cases arising outside contact lists. Only 1.3 billion of 2.9 billion dollars pledged has been released. No vaccine is approved for this strain.</p>
+      <p class="src">Reuters via Daily Maverick and Khaleej Times (center, T2); Al Jazeera (center, T2); ECDC situation update (T1). Confidence: multiple independent sources. Verification: <span class="vlabel">verified, reliable secondary</span>.</p>
     </div>
-  </article>
-</section>
+  </section>
 
-<section class="section">
-  <h2 class="section-title">3. Energy</h2>
-
-  <article class="item">
-    <div class="item-number">3.1</div>
-    <h3 class="item-headline">Saudi oil output surges 26 percent to wartime high</h3>
-    <p class="item-summary">Saudi Arabia reported October crude production reached 10.56 million barrels per day, up 26 percent from September's 8.37 million, marking highest output since February when US-Iran conflict began. Independent secondary sources estimated lower 9.19 million bpd. Recovery reflects improved Strait of Hormuz shuttle operations and Red Sea pipeline use.</p>
-    <div class="item-meta">
-      Sources: Bloomberg (center, T1); Al Jazeera (center, T1); Oilprice.com (center, T2); Arab News (center, T2)<br>
-      Confidence: multiple independent sources
+  <section>
+    <div class="section-label">3 &middot; Energy</div>
+    <div class="item">
+      <h3>1 &middot; Iran strikes Bahrain again and claims six tanker mine hits</h3>
+      <p>Iran launched six drones at Bahrain's Riffa air base on 15 November, its second strike there in three days and the first run since September. The Revolutionary Guards claim six tankers have hit Hormuz mines since 13 November; only one fire is independently confirmed.</p>
+      <p class="src">Al Jazeera (center, T2); CNBC (center, T2); Euronews (center, T2); Reuters via Investing.com (center, T2). Confidence: multiple sources on the Bahrain strikes; the tanker count is an IRGC claim with inconsistent totals. Verification: <span class="vlabel">single source, unconfirmed (tanker count)</span>.</p>
     </div>
-  </article>
-
-  <article class="item">
-    <div class="item-number">3.2</div>
-    <h3 class="item-headline">IEA forecasts oil surplus despite diesel squeeze</h3>
-    <p class="item-summary">IEA Oil Market Report projects global oil market returning to surplus in Q4 2026, expanding to 3.8 million bpd surplus in 2027 as Gulf exports recover. However, diesel remains critically tight with European prices near $180 per barrel, 77 percent above pre-war levels. IEA releasing emergency diesel stocks to bridge supply gap.</p>
-    <div class="item-meta">
-      Sources: IEA Oil Market Report November 2026 (primary, T1); Business Recorder (center, T2); Xinhua (center, T2)<br>
-      Confidence: <span class="label">single source</span>
+    <div class="item">
+      <h3>2 &middot; Oil and gas ease despite the attacks</h3>
+      <p>Brent settled at $95.84 on Friday, a second weekly loss, opened near $95 Monday and fell below $94 by the European afternoon as Gulf crude flowed near pre-war levels. TTF ended Friday near EUR 91 per MWh and slipped below 90 Monday; EU storage is about 71 percent.</p>
+      <p class="src">Newsquawk (center, T2); CNBC carrying Reuters (center, T2); Trading Economics (center, T2). Post-cutoff: Brent settled $92.44 Monday evening. TTF levels are vendor end-of-day, not exchange settlements. Verification: <span class="vlabel">verified, reliable secondary</span>.</p>
     </div>
-  </article>
-
-  <article class="item">
-    <div class="item-number">3.3</div>
-    <h3 class="item-headline">European gas storage hits multi-year low entering winter</h3>
-    <p class="item-summary">EU gas storage stands at 71.6 percent full as of November 10, down 10.8 points year-on-year and 17.5 points below five-year average, lowest for this date since 2017. Dutch TTF benchmark rose 4.2 percent to EUR 96.18 per MWh on November 13, posting 12 percent weekly gain. Commission lowered 2026 storage target to 75-80 percent.</p>
-    <div class="item-meta">
-      Sources: Voltstack (center, T2); Energy Risk IQ (center, T2); Azernews (center, T2)<br>
-      Confidence: multiple independent sources
+    <div class="item">
+      <h3>3 &middot; Swedish power doubles in SE3 for Tuesday</h3>
+      <p>Day-ahead for Tuesday 17 November, auctioned Monday, averaged EUR 205.10 per MWh in SE3 and 227.14 in SE4, against 95.57 and 146.92 for Friday delivery. Germany rose to 211.58 from 161.73. The narrow SE3 to SE4 spread points to system-wide tightness; no cause confirmed.</p>
+      <p class="src">energy-charts.info, all 96 quarter-hours recomputed independently by two desks (T1). Cause unverified. Verification: <span class="vlabel">verified, primary source</span>.</p>
     </div>
-  </article>
-</section>
+  </section>
 
-<section class="section">
-  <h2 class="section-title">4. Economy</h2>
-
-  <article class="item">
-    <div class="item-number">4.1</div>
-    <h3 class="item-headline">US wholesale inflation hits four-year high, Fed hike certain</h3>
-    <p class="item-summary">Producer prices rose 6.5 percent year-over-year in October, highest since November 2022. Monthly gain of 0.3 percent, matching Fed Governor Waller's threshold for considering 50-basis-point December hike. CME FedWatch shows 86 percent odds of 25bp hike, 14 percent for 50bp. Core PPI up 5 percent annually.</p>
-    <div class="item-meta">
-      Sources: CNN (center, T1); Business Standard (center, T2); Investing.com (center, T2); CME Group FedWatch (primary)<br>
-      Confidence: multiple independent sources
+  <section>
+    <div class="section-label">4 &middot; Economy</div>
+    <div class="item">
+      <h3>1 &middot; Japan's economy shrinks in the third quarter</h3>
+      <p>Japan's Cabinet Office said on 16 November real GDP fell 0.1 percent annualised in July to September, against 0.3 percent growth expected, with recovering energy imports a drag. The Bank of Japan is still expected to weigh a third hike this year in December.</p>
+      <p class="src">Cabinet Office ESRI (T1); The Star carrying Reuters (center, T2); CNBC (center, T2); Nikkei Asia (center, T2). Confidence: multiple independent sources on the headline figure. Verification: <span class="vlabel">verified, reliable secondary</span>.</p>
     </div>
-  </article>
-
-  <article class="item">
-    <div class="item-number">4.2</div>
-    <h3 class="item-headline">Ten-year Treasury yield reaches 5.16 percent</h3>
-    <p class="item-summary">Benchmark US 10-year yield hit 5.16 percent on Friday November 13, highest since October, tracking hawkish Fed comments and hot inflation data. 30-year bond auction Thursday cleared at 5.441 percent yield. German 10-year Bund climbed to 3.357 percent, two-week high. Global bond selloff ended month-long sovereign debt rally.</p>
-    <div class="item-meta">
-      Sources: CNBC (center, T1); Bloomberg (center, T1); Yahoo Finance (center, T2); Trading Economics (primary)<br>
-      Confidence: multiple independent sources
+    <div class="item">
+      <h3>2 &middot; China's October data misses across the board</h3>
+      <p>China's statistics bureau said on 16 November October industrial output rose 4.8 percent, against 5.3 in a Reuters poll, and retail sales just 0.4 percent. Fixed investment fell 8.1 percent and property investment 21.6 percent, January to October.</p>
+      <p class="src">National Bureau of Statistics release (T1); Business Standard carrying Reuters (center, T2); Quartz (center, T2). Verification: <span class="vlabel">verified, primary source</span>.</p>
     </div>
-  </article>
-
-  <article class="item">
-    <div class="item-number">4.3</div>
-    <h3 class="item-headline">Fed officials converge on hawkish stance</h3>
-    <p class="item-summary">Governor Waller advocates 50bp hike if core CPI hits 0.3 percent monthly. Dallas Fed's Logan wants two more 25bp increases. New York Fed's Williams says more rate increases likely with persistent inflation. Cleveland Fed's Hammack warns inflation moving in wrong direction. Unified hawkish messaging signals prolonged restrictive policy.</p>
-    <div class="item-meta">
-      Sources: Reuters via Investing.com (center, T1); Yahoo Finance (center, T2); Federal Reserve statements (primary); Washington Times (right, T2)<br>
-      Confidence: multiple independent sources
+    <div class="item">
+      <h3>3 &middot; European rate setters talk of hikes into 2027</h3>
+      <p>ECB Governing Council member Šimkus called a December hike his central scenario on 16 November and said more tightening next year may be needed; the Bank of England's Pill said on 14 November hikes may run into 2027. Euro area industry was 1.5 percent below a year ago in September.</p>
+      <p class="src">Newsquawk citing Econostream (center, T2); Financial Times interview via Investing.com and The Guardian (left, T2); Eurostat (T1). Verification: <span class="vlabel">single source, unconfirmed (Šimkus)</span>.</p>
     </div>
-  </article>
-</section>
+  </section>
 
-<section class="section">
-  <h2 class="section-title">5. Politics</h2>
-
-  <article class="item">
-    <div class="item-number">5.1</div>
-    <h3 class="item-headline">Indonesia VP resigns in unprecedented crisis</h3>
-    <p class="item-summary">Vice President Gibran Rakabuming Raka submitted resignation November 12, first directly elected VP to step down before completing five-year term, amid scandal over high school diploma and academic credentials. President Prabowo must nominate two candidates within 14 days; parliament decides within 60 days. Highest-profile resignation since Suharto 1998.</p>
-    <div class="item-meta">
-      Sources: Al Jazeera (center, T1); ABC News Australia (center, T1); Anadolu Agency (center, T2); Washington Times (right, T2)<br>
-      Confidence: multiple independent sources
+  <section>
+    <div class="section-label">5 &middot; Politics</div>
+    <div class="item">
+      <h3>1 &middot; Dutch coalition spends the weekend in crisis over wealth tax</h3>
+      <p>Prime Minister Jetten's minority cabinet of D66, CDA and VVD held crisis talks 13 to 15 November after the VVD voted on 12 November against its own 2027 tax plan, passed with opposition votes for a higher wealth tax. Unresolved at the cutoff.</p>
+      <p class="src">NL Times carrying ANP (center, T2); DutchNews (center, T2); Euronews (center, T2); The National (center, T2). Post-cutoff and unverified: the parties said Monday night confidence was restored. Verification: <span class="vlabel">verified, reliable secondary</span>.</p>
     </div>
-  </article>
-
-  <article class="item">
-    <div class="item-number">5.2</div>
-    <h3 class="item-headline">US envoys meet Putin after Ukraine talks</h3>
-    <p class="item-summary">Presidential envoys Jared Kushner and Steve Witkoff met Vladimir Putin November 12 following two-day Abu Dhabi negotiations between Russia and Ukraine. Putin told envoys European troops in Ukraine post-ceasefire absolutely unacceptable and would be legitimate targets. Talks yielded prisoner swap agreement but no broader breakthrough.</p>
-    <div class="item-meta">
-      Sources: NPR (center, T1); Military.com (center, T2); U.S. News (center, T1); Fox News (right, T1)<br>
-      Confidence: multiple independent sources
+    <div class="item">
+      <h3>2 &middot; Netanyahu opens unity talks with Eisenkot</h3>
+      <p>Likud and Eisenkot's party held unity talks on 15 November. Eisenkot has held the mandate to form a government since 8 November; neither bloc reached 61 of 120 seats in the 27 October election. Failure means another election in early 2027.</p>
+      <p class="src">Times of Israel (center, T2); Israel Hayom (right, T2); JNS (right, T2); Al Jazeera (center, T2). Bennett's participation reported by one desk source only, so left out. Verification: <span class="vlabel">verified, reliable secondary</span>.</p>
     </div>
-  </article>
-
-  <article class="item">
-    <div class="item-number">5.3</div>
-    <h3 class="item-headline">Iran claims Bahrain radar strike, US denies</h3>
-    <p class="item-summary">Iran's Revolutionary Guard Corps claimed November 13 it destroyed US early-warning radar system in Bahrain. US Central Command denied claim, saying two Iranian attack drones fired overnight were shot down with no injuries or facility damage. Neither Bahraini government nor military verified any strike.</p>
-    <div class="item-meta">
-      Sources: Al Arabiya (right, T2); Al Jazeera (center, T1); ABC News (center, T1); Euronews (center, T1); Washington Times (right, T2)<br>
-      Confidence: <span class="label">single source</span> for Iranian claim; multiple sources confirm US denial
+    <div class="item">
+      <h3>3 &middot; Republicans start the 2028 fight after the midterm rout</h3>
+      <p>With Democrats holding about 256 House seats to 169 on the latest count, Reuters reported on 16 November that Vance is no longer seen as Trump's inevitable successor. A Democratic Congress sits from 3 January, narrowing Trump's room on Iran, tariffs and Ukraine.</p>
+      <p class="src">Reuters via US News (center, T2); Cook Political Report (center, T2, page blocked to the checker); McClatchy (center, T2). Seat count and Reuters line not independently confirmed. Verification: <span class="vlabel">could not verify</span>.</p>
     </div>
-  </article>
-</section>
+  </section>
 
-<div class="footer">
-  <p><strong>Total word count:</strong> ~640 words (item text) · <strong>Estimated read time:</strong> 3-4 minutes</p>
-  <p><strong>Source balance:</strong> Left (Washington Post, NPR, NBC News), Center (Al Jazeera, Bloomberg, CNBC, WHO, ECDC, UN News, IEA, Reuters, ABC News, Euronews, PBS), Right (Jerusalem Post, Fox News, Washington Times) — all three lean groups represented.</p>
-  <p><strong>Note:</strong> The long view table was not refreshed in this edition due to time constraints and the 2-month data gap requiring a full systematic update.</p>
+  <section class="longview">
+    <div class="section-label">6 &middot; The long view</div>
+    <p class="longview-intro">How different countries' economies are doing, as a counterbalance to the daily news. 35 economies ranked by the average of each economy's rank on GDP growth, inflation (lower is better) and equities year to date, plus the Eurozone aggregate (unranked). Click any column header to sort; click again to flip; the # column restores the composite order. Last full verification: 16 November 2026.</p>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Economy</th>
+            <th>GDP<br><span class="per">% yoy</span></th>
+            <th>Inflation<br><span class="per">% yoy</span></th>
+            <th>Policy<br><span class="per">%</span></th>
+            <th>10y<br><span class="per">%</span></th>
+            <th>Stocks<br><span class="per">YTD %</span></th>
+            <th>Debt<br><span class="per">% of GDP</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Slovenia</td>
+            <td>+5.0 <span class="per">Q2</span></td>
+            <td>+3.3 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.92</td>
+            <td>+27.4 <span class="per">SBITOP (Sep, stale)</span></td>
+            <td>64.8 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>South Korea</td>
+            <td>+3.4 <span class="per">Q3</span></td>
+            <td>+2.8 <span class="per">Oct</span></td>
+            <td>3.00</td>
+            <td>4.39</td>
+            <td>+25.5 <span class="per">KOSPI</span></td>
+            <td>52.3 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Poland</td>
+            <td>+3.6 <span class="per">Q3</span></td>
+            <td>+3.5 <span class="per">Oct</span></td>
+            <td>3.75</td>
+            <td>6.44</td>
+            <td>+35.0 <span class="per">WIG20</span></td>
+            <td>61.6 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr class="sweden">
+            <td>4</td>
+            <td>Sweden</td>
+            <td>+2.8 <span class="per">Q3</span></td>
+            <td>+0.9 <span class="per">CPI, Oct; CPIF +1.1 Oct</span></td>
+            <td>2.00</td>
+            <td>3.08</td>
+            <td>+16.4 <span class="per">OMXS30</span></td>
+            <td>34.9 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Switzerland</td>
+            <td>+3.0 <span class="per">Q3</span></td>
+            <td>+1.5 <span class="per">Oct</span></td>
+            <td>0.00</td>
+            <td>0.53</td>
+            <td>+13.9 <span class="per">SMI</span></td>
+            <td>39.4 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>Denmark</td>
+            <td>+5.7 <span class="per">Q2</span></td>
+            <td>+2.2 <span class="per">Oct</span></td>
+            <td>1.85</td>
+            <td>3.37</td>
+            <td>+10.6 <span class="per">OMXC25</span></td>
+            <td>26.8 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>Hungary</td>
+            <td>+1.5 <span class="per">Q3</span></td>
+            <td>+2.0 <span class="per">Oct</span></td>
+            <td>5.50</td>
+            <td>5.75</td>
+            <td>+31.6 <span class="per">BUX</span></td>
+            <td>77.7 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>Israel</td>
+            <td>+7.3 <span class="per">Q2</span></td>
+            <td>+1.6 <span class="per">Sep</span></td>
+            <td>3.25</td>
+            <td>4.03</td>
+            <td>+7.3 <span class="per">TA-125</span></td>
+            <td>68.5 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>China</td>
+            <td>+4.5 <span class="per">Q3</span></td>
+            <td>+0.7 <span class="per">Oct</span></td>
+            <td>3.00 LPR</td>
+            <td>1.69</td>
+            <td>-13.3 <span class="per">CSI 300</span></td>
+            <td>99.2 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>Japan</td>
+            <td>+1.1 <span class="per">Q3</span></td>
+            <td>+2.1 <span class="per">Sep</span></td>
+            <td>1.25</td>
+            <td>2.90</td>
+            <td>+21.5 <span class="per">Nikkei 225</span></td>
+            <td>229.6 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>11</td>
+            <td>Norway</td>
+            <td>+2.0 <span class="per">Q2</span></td>
+            <td>+3.6 <span class="per">Oct</span></td>
+            <td>4.50</td>
+            <td>4.36</td>
+            <td>+25.1 <span class="per">OSEBX</span></td>
+            <td>45.0 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Ireland</td>
+            <td>+3.6 <span class="per">Q3</span></td>
+            <td>+4.3 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.54</td>
+            <td>+14.3 <span class="per">ISEQ</span></td>
+            <td>37.0 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>13</td>
+            <td>Finland</td>
+            <td>+2.1 <span class="per">Q3</span></td>
+            <td>+3.1 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.83</td>
+            <td>+11.0 <span class="per">OMXH25</span></td>
+            <td>89.7 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>14</td>
+            <td>Netherlands</td>
+            <td>+2.1 <span class="per">Q3</span></td>
+            <td>+3.7 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.48</td>
+            <td>+19.9 <span class="per">AEX</span></td>
+            <td>43.8 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Latvia</td>
+            <td>+3.0 <span class="per">Q2</span></td>
+            <td>+3.1 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.73*</td>
+            <td>+9.5 <span class="per">OMX Riga</span></td>
+            <td>46.9 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>16</td>
+            <td>Portugal</td>
+            <td>+2.4 <span class="per">Q3</span></td>
+            <td>+3.8 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.91</td>
+            <td>+17.4 <span class="per">PSI</span></td>
+            <td>91.0 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>17</td>
+            <td>Colombia</td>
+            <td>+3.5 <span class="per">Q2</span></td>
+            <td>+6.3 <span class="per">Oct</span></td>
+            <td>12.25</td>
+            <td>12.59</td>
+            <td>+19.0 <span class="per">COLCAP (Sep, stale)</span></td>
+            <td>59.9 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>18</td>
+            <td>Mexico</td>
+            <td>+3.2 <span class="per">Q3</span></td>
+            <td>+3.8 <span class="per">Oct</span></td>
+            <td>6.25</td>
+            <td>9.31</td>
+            <td>+10.7 <span class="per">IPC</span></td>
+            <td>61.8 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>19</td>
+            <td>Spain</td>
+            <td>+2.7 <span class="per">Q3</span></td>
+            <td>+4.9 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.94</td>
+            <td>+15.7 <span class="per">IBEX 35</span></td>
+            <td>101.6 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>20</td>
+            <td>Austria</td>
+            <td>+0.6 <span class="per">Q3</span></td>
+            <td>+3.6 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.61</td>
+            <td>+24.9 <span class="per">ATX</span></td>
+            <td>83.3 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>21</td>
+            <td>Canada</td>
+            <td>+1.1 <span class="per">Q2</span></td>
+            <td>+3.1 <span class="per">Oct</span></td>
+            <td>2.50</td>
+            <td>3.86</td>
+            <td>+13.9 <span class="per">TSX</span></td>
+            <td>113.5 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>22</td>
+            <td>Luxembourg</td>
+            <td>+1.3 <span class="per">Q2</span></td>
+            <td>+2.7 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.30*</td>
+            <td>+10.2 <span class="per">LuxX (Sep, stale)</span></td>
+            <td>29.2 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>23</td>
+            <td>Greece</td>
+            <td>+1.9 <span class="per">Q2</span></td>
+            <td>+5.7 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>4.29</td>
+            <td>+24.3 <span class="per">Athens Gen.</span></td>
+            <td>143.5 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>24</td>
+            <td>United States</td>
+            <td>+2.1 <span class="per">Q3</span></td>
+            <td>+3.7 <span class="per">Sep</span></td>
+            <td>3.75 to 4.00</td>
+            <td>5.15</td>
+            <td>+10.5 <span class="per">S&amp;P 500</span></td>
+            <td>123.9 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>25</td>
+            <td>Czech Republic</td>
+            <td>+1.6 <span class="per">Q3</span></td>
+            <td>+2.4 <span class="per">Oct</span></td>
+            <td>4.00</td>
+            <td>5.30</td>
+            <td>-1.3 <span class="per">PX</span></td>
+            <td>44.1 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>26</td>
+            <td>Germany</td>
+            <td>+1.2 <span class="per">Q3</span></td>
+            <td>+2.8 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.38</td>
+            <td>+9.2 <span class="per">DAX</span></td>
+            <td>64.4 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>27</td>
+            <td>Slovakia</td>
+            <td>+0.5 <span class="per">Q3</span></td>
+            <td>+3.0 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>4.30</td>
+            <td>+10.9 <span class="per">SAX (Sep, stale)</span></td>
+            <td>62.5 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>28</td>
+            <td>United Kingdom</td>
+            <td>+1.9 <span class="per">Q3</span></td>
+            <td>+3.5 <span class="per">Sep</span></td>
+            <td>4.00</td>
+            <td>5.34</td>
+            <td>+9.8 <span class="per">FTSE 100</span></td>
+            <td>102.8 <span class="per">Q2 26</span></td>
+          </tr>
+          <tr>
+            <td>29</td>
+            <td>Estonia</td>
+            <td>+2.2 <span class="per">Q3</span></td>
+            <td>+4.2 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>3.28*</td>
+            <td>+9.9 <span class="per">OMX Tallinn</span></td>
+            <td>25.2 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>30</td>
+            <td>Belgium</td>
+            <td>+0.7 <span class="per">Q3</span></td>
+            <td>+5.3 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>4.17</td>
+            <td>+20.5 <span class="per">BEL 20</span></td>
+            <td>109.1 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>31</td>
+            <td>Italy</td>
+            <td>+0.8 <span class="per">Q3</span></td>
+            <td>+5.4 <span class="per">Oct prov.</span></td>
+            <td>2.50 ECB</td>
+            <td>4.44</td>
+            <td>+15.4 <span class="per">FTSE MIB</span></td>
+            <td>138.9 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>32</td>
+            <td>Turkey</td>
+            <td>+2.3 <span class="per">Q2</span></td>
+            <td>+29.8 <span class="per">Oct</span></td>
+            <td>36.00</td>
+            <td>33.52†</td>
+            <td>+5.2 <span class="per">BIST 100</span></td>
+            <td>23.5 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>33</td>
+            <td>France</td>
+            <td>-0.1 <span class="per">Q3</span></td>
+            <td>+3.4 <span class="per">Oct</span></td>
+            <td>2.50 ECB</td>
+            <td>4.93</td>
+            <td>+2.7 <span class="per">CAC 40</span></td>
+            <td>117.6 <span class="per">Q1 26</span></td>
+          </tr>
+          <tr>
+            <td>34</td>
+            <td>Chile</td>
+            <td>-0.2 <span class="per">Q2</span></td>
+            <td>+4.5 <span class="per">Oct</span></td>
+            <td>4.50</td>
+            <td>6.01</td>
+            <td>+9.1 <span class="per">IPSA (Sep, stale)</span></td>
+            <td>41.8 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>35</td>
+            <td>Iceland</td>
+            <td>-1.1 <span class="per">Q2</span></td>
+            <td>+5.9 <span class="per">Oct</span></td>
+            <td>8.00</td>
+            <td>7.11</td>
+            <td>-6.8 <span class="per">OMXI15 (Sep, stale)</span></td>
+            <td>56.1 <span class="per">2025</span></td>
+          </tr>
+          <tr>
+            <td>&middot;</td>
+            <td>Eurozone (aggregate, unranked)</td>
+            <td>+1.3 <span class="per">Q3 flash</span></td>
+            <td>+4.0 <span class="per">Oct flash</span></td>
+            <td>2.50 deposit</td>
+            <td>3.38 Bund</td>
+            <td>+10.2 <span class="per">Stoxx 50</span></td>
+            <td>88.9 <span class="per">Q1 26</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="item desknote">
+      <h3>Data desk, this pass</h3>
+      <p>Full re-verification, the first since 19 August. Two data desks re-checked all 36 rows against the Monday cutoff: third quarter GDP where published (mostly Eurostat's 13 November flash, seasonally adjusted), October inflation where published, every policy decision through 11 November, ten-year yields at the Friday 13 November close (US from the Treasury yield curve file, Sweden, Norway and Japan from their central banks and finance ministry), and equities recomputed from the 2025 year-end close (30 December where 31 December was a holiday) to the 13 November close.</p>
+      <p>What moved most: Sweden's policy rate is 2.00 after the 4 November hike, the Bank of England is at 4.00, Canada 2.50, Norway 4.50, Czech Republic 4.00, Colombia 12.25, Mexico 6.25 and Turkey 36.00. Equities cooled sharply since September: KOSPI from +58.6 to +25.5, CSI 300 to -13.3, BIST 100 to +5.2 and the S&amp;P 500 to +10.5. Sweden rises from 5th in September to 4th, behind Slovenia, South Korea and Poland.</p>
+      <p>Not refreshed, and marked so: cells without a newer sourceable figure keep their September value. Equities marked stale (SBITOP, COLCAP, LuxX, SAX, IPSA, OMXI15) have no reachable 2025 year-end close. Norway now uses OSEBX, a different index, because the Oslo All-Share has no route. The United States and United Kingdom show September inflation (US October has no 12 month rate; UK October is due 18 November). No debt cell was refreshed. The inflation column still mixes national CPI and the harmonised measure (Luxembourg: 2.7 national against 4.9 harmonised), the oldest open decision on this desk.</p>
+      <p>* No liquid daily ten-year quote; indicative only, for Estonia, Latvia and Luxembourg. &dagger; Turkey's ten-year rests on one thin quote.</p>
+    </div>
+  </section>
+  <script>
+    (function () {
+      var table = document.querySelector('.longview table');
+      if (!table) return;
+      var tbody = table.tBodies[0];
+      var ths = Array.prototype.slice.call(table.tHead.rows[0].cells);
+      var state = { col: 0, dir: 1 };
+
+      ths.forEach(function (th, i) {
+        var ind = document.createElement('span');
+        ind.className = 'sort-ind';
+        th.appendChild(ind);
+        th.setAttribute('tabindex', '0');
+        th.setAttribute('role', 'button');
+        th.addEventListener('click', function () { sortBy(i); });
+        th.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); sortBy(i); }
+        });
+      });
+
+      function cellNum(row, i) {
+        var t = row.cells[i].textContent;
+        var m = t.match(/[+-]?\d+(\.\d+)?/);
+        return m ? parseFloat(m[0]) : NaN;
+      }
+      function cellText(row, i) {
+        return row.cells[i].textContent.trim().toLowerCase();
+      }
+
+      function sortBy(i) {
+        var textCol = (i === 1);
+        if (state.col === i) {
+          state.dir = -state.dir;
+        } else {
+          state.col = i;
+          state.dir = textCol ? 1 : -1;
+        }
+        var rows = Array.prototype.slice.call(tbody.rows);
+        rows.sort(function (a, b) {
+          if (textCol) {
+            return state.dir * cellText(a, i).localeCompare(cellText(b, i));
+          }
+          var va = cellNum(a, i), vb = cellNum(b, i);
+          if (isNaN(va) && isNaN(vb)) return 0;
+          if (isNaN(va)) return 1;
+          if (isNaN(vb)) return -1;
+          return state.dir === -1 ? (vb - va) : (va - vb);
+        });
+        rows.forEach(function (r) { tbody.appendChild(r); });
+        ths.forEach(function (th, j) {
+          th.querySelector('.sort-ind').textContent = (j === state.col) ? (state.dir === -1 ? '▾' : '▴') : '';
+          th.setAttribute('aria-sort', j === state.col ? (state.dir === -1 ? 'descending' : 'ascending') : 'none');
+        });
+      }
+    })();
+  </script>
+  <div class="footer">
+    <p>Issue No. 23, Monday 16 November 2026, weekend special, late edition. Coverage window Friday 13 November 16:30 to Monday 16 November 16:30 CET. 672 words of item text, about four minutes, plus the table.</p>
+    <p><strong>Corrected in place:</strong> Friday's issue said Dutch TTF rose 4.2 percent to EUR 96.18 on 13 November. It eased to about EUR 91 that day, still up over 6 percent on the week. The archive is fixed and the correction logged.</p>
+    <p><strong>Dated triggers ahead:</strong> Kristersson reports to Speaker Norlén on Tuesday 17 November after two failed prime minister votes; Trump, Xi and Putin meet in Shenzhen on Thursday 19 November; UK October inflation 18 November; EU summit 26 to 27 November; Spain votes 29 November.</p>
+    <p>Source mix: all three lean groups are represented. Left: NBC News, NPR, The Guardian. Centre and wire: Reuters (via syndication), CNBC, Bloomberg, Al Jazeera, Euronews, PBS, ERR News, Newsquawk, plus primary sources (National Bureau of Statistics, Cabinet Office, Eurostat, ECDC, energy-charts). Right: Jerusalem Post, Forbes, JNS, Israel Hayom. Several major outlets (WSJ, The Times, FT, NYT) were unreachable to the desks this issue, so the right-leaning share leans on secondary outlets.</p>
+  </div>
 </div>
